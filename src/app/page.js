@@ -1,19 +1,22 @@
-"use client";
+"use client"
+import { Route, Routes } from "react-router-dom";
+import RootLayout from "./components/RootLayout";
+import Peliculas from "./peliculas/page";
+import Funciones from "./funciones/page";
 
-import Image from 'next/image'
-import SideNavbar from './components/SideNavbar';
-
-
-
-export default function Home() {
+export default function App (){
   return (
     <div>
       <head>
         <title>Cine</title>
         <link rel="icon" href="/pro.ico"/>
       </head>
-
-      <SideNavbar></SideNavbar>
+      <RootLayout>
+        <Routes>
+          <Route path="/" element={ <Peliculas/>}></Route>
+          <Route path="/funciones" element={ <Funciones/>}></Route>
+        </Routes>
+      </RootLayout>
     </div>
 
   );
