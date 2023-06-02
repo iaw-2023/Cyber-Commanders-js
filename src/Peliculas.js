@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import CuadroPelis from './componentes/CuadroPeli';
 
 export default function Peliculas() {
   const [peliculas, setPeliculas] = useState([]);
@@ -22,7 +23,7 @@ export default function Peliculas() {
       <ul>
         {peliculas.map((pelicula) => (
           <li key={pelicula.id}>
-            <p>{pelicula.nombre +" Duracion:"+pelicula.duracion+"Minutos"}</p>
+            <CuadroPelis pelicula={pelicula} / >
           </li>
         ))}
       </ul>
