@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import CuadroSalas from './componentes/CuadroSala';
 
 export default function Salas() {
   const [salas, setSalas] = useState([]);
@@ -21,9 +22,9 @@ export default function Salas() {
         peliculas.
       </p>
       <ul>
-        {salas.map((sala) => (
-          <li key={salas.id}>
-            <p>{sala.nombre +" tipo:"+sala.tipo+" Con capacidad para "+sala.capacidad+" personas"}</p>
+        { salas.map((sala) => (
+          <li key={sala.id}>
+            <CuadroSalas sala={sala} />
           </li>
         ))}
       </ul>
