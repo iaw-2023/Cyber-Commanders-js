@@ -7,6 +7,7 @@ import Inicio from './Inicio';
 import Salas from './Salas';
 import Peliculas from './Peliculas';
 import Navbar from './Navbar';
+import SalasBis from './SalaBis';
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Inicio />} />
-          <Route path="/salas" element={<Salas />} />
+          <Route path="/salas" element={<SalasBis />} />
           <Route path="/peliculas" element={<Peliculas />} />
         </Routes>
       </Router>
