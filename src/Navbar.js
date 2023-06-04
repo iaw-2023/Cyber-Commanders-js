@@ -33,6 +33,14 @@ export default function Navbar() {
                 Peliculas
               </a>
             </li>
+            <li>
+              <a
+                href="/funciones"
+                className="text-white hover:text-gray-300 transition duration-300"
+              >
+                Funciones
+              </a>
+            </li>
           </ul>
         </div>
       </div>
