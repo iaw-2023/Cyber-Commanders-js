@@ -22,7 +22,7 @@ export default function SalasBis() {
 						<h2>{sala.nombre}</h2>
 						<p className='tipo'>{sala.tipo}</p>
 						<button >
-							Capacidad: {sala.capacidad}+ personas
+							Capacidad: {sala.capacidad} personas
 						</button>
 					</div>
 				</div>

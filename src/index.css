@@ -26,12 +26,13 @@ code {
 	cursor: pointer;
 }
 .container-items {
+  margin: 15px;
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	gap: 20px;
 }
 .item {
-	border-radius: 10px;
+	border-radius: 15px;
 }
 
 .info-product {
