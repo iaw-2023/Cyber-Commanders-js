@@ -6,7 +6,7 @@ export default function CuadroFunciones(promps) {
     <div class="flex flex-col text-white">
       <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
         <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
-          <div class="overflow-x-auto max-w-full max-h-[350px] overflow-y-scroll">
+          <div class="overflow-x-auto max-w-full max-h-[400px] overflow-y-scroll">
             <table className="text-left min-w-full overflow-auto">
               <thead className="border-white border-2 flex text-gray-100 w-full">
                 <tr className="flex w-full mb-4">
@@ -32,7 +32,7 @@ export default function CuadroFunciones(promps) {
                   (funcion) =>
                     funcion.pelicula &&
                     funcion.sala && (
-                      <tr key={funcion.id} className="flex w-full m-2 border-white border-2">
+                      <tr key={funcion.id} className="flex w-full border-white border-2">
                         <Funcion funcion={funcion} />
                       </tr>
                     )

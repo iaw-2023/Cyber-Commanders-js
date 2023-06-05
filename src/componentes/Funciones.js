@@ -6,7 +6,21 @@ import Pelis from "./Pelis";
 export default function Funciones(promps) {
   const [funciones, setFunciones] = useState([]);
   const [estadoPeli, setEstadoPeli] = useState(
-    { nombre: 'Ejemplo', edad: 25 }
+    {"id":0,
+     "inicio":"",
+     "precio":0,
+     "pelicula":
+        {"id":0,
+        "duracion":"",
+        "poster":
+        "https://vxhbrvoxntfzyholqegd.supabase.co/storage/v1/object/public/images/Logo.jpg",
+        "nombre":""},
+      "sala":
+        {"capacidad":0,
+         "tipo":"",
+         "nombre":""
+        }
+      }
   );
 
   const actualizarEstado = (json) => {
