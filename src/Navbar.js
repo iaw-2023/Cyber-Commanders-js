@@ -1,4 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
+const url = "https://cyber-commanders-laravel.vercel.app/rest/funciones";
 
 export default function Navbar() {
   return (
@@ -9,38 +12,34 @@ export default function Navbar() {
         </div>
         <div>
           <ul className="flex space-x-4">
+            <Link to={"/"}>
             <li>
-              <a
-                href="/"
-                className="text-white hover:text-gray-300 transition duration-300"
-              >
-                Inicio
-              </a>
+              <div className="text-white hover:text-gray-300 transition duration-300">
+              Inicio
+              </div>
             </li>
+            </Link>
+            <Link to={"/salas"}>
             <li>
-              <a
-                href="/salas"
-                className="text-white hover:text-gray-300 transition duration-300"
-              >
-                Salas
-              </a>
+              <div className="text-white hover:text-gray-300 transition duration-300">
+              Salas
+              </div>
             </li>
+            </Link>
+            <Link to={"/peliculas"}>
             <li>
-              <a
-                href="/peliculas"
-                className="text-white hover:text-gray-300 transition duration-300"
-              >
-                Peliculas
-              </a>
+              <div className="text-white hover:text-gray-300 transition duration-300">
+              Peliculas
+              </div>
             </li>
+            </Link>
+            <Link to="/funciones" state={{link: url}}>
             <li>
-              <a
-                href="/funciones"
-                className="text-white hover:text-gray-300 transition duration-300"
-              >
-                Funciones
-              </a>
+              <div className="text-white hover:text-gray-300 transition duration-300">
+              Funciones
+              </div>
             </li>
+            </Link>
           </ul>
         </div>
       </div>

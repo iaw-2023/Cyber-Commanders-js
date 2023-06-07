@@ -1,9 +1,14 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Pelis from "./Pelis";
+import ComprarEntradas from "../ComprarEntradas";
+import { useLocation } from 'react-router-dom';
 
 
 export default function Funciones(promps) {
+  const location = useLocation();
+  const link = location.state.link;
+
   const [funciones, setFunciones] = useState([]);
   const [estadoPeli, setEstadoPeli] = useState(
     {"id":0,
@@ -23,13 +28,21 @@ export default function Funciones(promps) {
       }
   );
 
+  const [estadoEntrada, setEstadoEntrada] = useState(
+    {
+     "id_funcion":0,
+     "precio":0,
+    }
+  );
+
   const actualizarEstado = (json) => {
     setEstadoPeli(json.funcion);
+    setEstadoEntrada({"id_funcion" : json.funcion.id, "precio" : json.funcion.precio})
   };
 
   useEffect(() => {
     axios
-      .get("https://cyber-commanders-laravel.vercel.app/rest/funciones")
+      .get(link)
       .then((response) => setFunciones(response.data.data))
       .catch((error) => console.error(error));
   }, []);
@@ -123,9 +136,7 @@ export default function Funciones(promps) {
           </div>
         </div>
         <div className="m-2 border-2 border-slate-100 bg-gray-900">
-          <h1 className="text-center text-4xl text-slate-100">
-            Comprar Entrada
-          </h1>
+          <ComprarEntradas estadoEntrada={estadoEntrada} />
         </div>
       </div>
     </div>
