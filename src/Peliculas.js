@@ -12,7 +12,7 @@ export default function Peliculas() {
       .catch((error) => console.error(error));
   }, []);
 
-  return (
+  return (       
     <div>
       <h1 className="text-center mb-4 text-8xl font-light leading-none tracking-tight text-black-900">
         PELICULAS
@@ -21,7 +21,8 @@ export default function Peliculas() {
         Algunas de nuestras peliculas son
       </p>
       <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 md:grid-cols-4">
-        {peliculas.map((pelicula) => (
+        {peliculas.map((pelicula) => 
+        (
           <div key={pelicula.id}>
             <CuadroPelis pelicula={pelicula} />
           </div>

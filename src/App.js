@@ -5,6 +5,7 @@ import Inicio from './Inicio';
 import Salas from './Salas';
 import Peliculas from './Peliculas';
 import Navbar from './Navbar';
+import Funciones from './Funciones';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Inicio />} />
+          <Route path='/funciones' element={<Funciones />}/>
           <Route path="/salas" element={<Salas />} />
           <Route path="/peliculas" element={<Peliculas />} />
         </Routes>
