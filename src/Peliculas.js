@@ -13,11 +13,11 @@ export default function Peliculas() {
   }, []);
 
   return (
-    <div>
-      <h1 className="text-center mb-4 text-8xl font-light leading-none tracking-tight text-black-900">
+    <div className="bg-white">
+      <h1 className="text-white text-center mb-4 text-8xl font-light leading-none tracking-tight text-black-900">
         PELICULAS
       </h1>
-      <p className="mb-6 text-lg text-[30px] text-center text-gray-500">
+      <p className="mb-6 text-lg text-[30px] text-center text-white">
         Algunas de nuestras peliculas son
       </p>
       <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 md:grid-cols-4">

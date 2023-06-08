@@ -3,12 +3,12 @@ import { Link } from "react-router-dom";
 
 export default function CuadroPelis(promps) {
   return (
-    <div className=" w-full bg-gray-100 p-3 m-3 border-2 border-black rounded-xl ">
+    <div className=" w-full bg-transparent  p-3 m-3 border-2 border-[#B58B3D] rounded-xl ">
       <div className=" object-cover group flex flex-col items-center rounded-md  drop-shadow hover:drop-shadow-lg">
         <img
           src={promps.pelicula.poster}
           alt={promps.pelicula.nombre}
-          className="border-black border-2  rounded-tl-md rounded-tr-md grayscale-0 hover:grayscale h-80 w-64 object-cover"
+          className="border-[#B58B3D] border-2  rounded-tl-md rounded-tr-md grayscale-0 hover:grayscale h-80 w-64 object-cover"
         />
         <Link to="/funciones" state = {{link:"https://cyber-commanders-laravel.vercel.app/rest/funciones/pelicula/"+promps.pelicula.id}}>
           <button
@@ -20,8 +20,8 @@ export default function CuadroPelis(promps) {
         </Link>
       </div>
       <div className="px-3 py-2">
-        <h1 className=" font-semibold ">Nombre: {promps.pelicula.nombre}</h1>
-        <p className="text-sm ">
+        <h1 className=" font-semibold text-[#B58B3D]  ">Nombre: {promps.pelicula.nombre}</h1>
+        <p className="text-sm text-[#B58B3D] ">
           Duracion: {promps.pelicula.duracion} minutos{" "}
         </p>
       </div>
