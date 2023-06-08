@@ -1,7 +1,14 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import CuadroPelis from "./componentes/CuadroPelis";
 
 export default function Peliculas() {
+  <link
+    href="https://fonts.googleapis.com/css?family=Lora:400,700|Montserrat:300"
+    rel="stylesheet"
+  />;
+  
+
   const [peliculas, setPeliculas] = useState([]);
 
   useEffect(() => {
@@ -12,20 +19,14 @@ export default function Peliculas() {
   }, []);
 
   return (
-    <div className="">
-      <h1 className="text-center mb-4 text-8xl font-light leading-none tracking-tight text-black-900">
-        PELICULAS
-      </h1>
-      <p className="mb-6 text-lg text-[30px] text-center text-gray-500">
-        Algunas de nuestras peliculas son
-      </p>
-      <ul>
-        {peliculas.map((pelicula) => (
-          <li key={pelicula.id}>
-            <p>{pelicula.nombre +" Duracion:"+pelicula.duracion+"Minutos"}</p>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <>
+      <section className="hero-section">
+        <div className="card-grid">
+          {peliculas.map((pelicula) => (
+            <CuadroPelis pelicula={pelicula} />
+          ))}
+        </div>
+      </section>
+    </>
   );
 }
