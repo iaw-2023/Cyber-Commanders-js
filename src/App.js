@@ -5,6 +5,7 @@ import Salas from './Salas';
 import Peliculas from './Peliculas';
 import Navbar from './Navbar';
 import Funciones from './componentes/Funciones';
+import Extras from './Extras';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/salas" element={<Salas />} />
           <Route path="/peliculas" element={<Peliculas />} />
           <Route path="/funciones" element={<Funciones  />} />
+          <Route path="/extras" element={<Extras  />} />   
         </Routes>
       </Router>
     </div>

@@ -45,6 +45,7 @@ export default function Funciones(promps) {
       .get(link)
       .then((response) => setFunciones(response.data.data))
       .catch((error) => console.error(error));
+       // eslint-disable-next-line
   }, []);
 
   return (
