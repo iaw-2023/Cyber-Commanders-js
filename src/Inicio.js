@@ -1,41 +1,99 @@
 import React from "react";
+import "./inicio.css";
 
 export default function Inicio() {
   return (
-    <>
-      {/* Section: Design Block */}
-      <section className="mb-40">
-        {/* Jumbotron */}
-        <div
-          className="relative overflow-hidden bg-cover bg-no-repeat"
-          style={{
-            backgroundPosition: "50%",
-            backgroundImage:
-              'url("https://vxhbrvoxntfzyholqegd.supabase.co/storage/v1/object/public/images/fondo.jpg")',
-            height: 500,
-          }}
-        >
-          <div className="absolute top-0 right-0 bottom-0 left-0 h-full w-full overflow-hidden bg-[hsla(0,0%,0%,0.75)] bg-fixed">
-            <div className="flex h-full items-center justify-center">
-              <div className="px-6 text-center text-white md:px-12">
-                <h1 className="mt-2 mb-16 text-5xl font-light tracking-tight md:text-6xl xl:text-7xl">
-                  Cines IAW <br />
-                </h1>
-                <button
-                  type="button"
-                  className="rounded border-2 border-neutral-50 px-[46px] pt-[14px] pb-[12px] text-sm font-medium uppercase leading-normal text-neutral-50 transition duration-150 ease-in-out hover:border-neutral-100 hover:bg-neutral-100 hover:bg-opacity-10 hover:text-neutral-100 focus:border-neutral-100 focus:text-neutral-100 focus:outline-none focus:ring-0 active:border-neutral-200 active:text-neutral-200"
-                  data-te-ripple-init=""
-                  data-te-ripple-color="light"
-                >
-                  Get started
-                </button>
-              </div>
-            </div>
-          </div>
+    <div className="container bg-gray-600">
+      <div id="salas" className="section">
+        <div className="content text-center">
+          <h1 className="text-2xl">Salas</h1>
+          <p className="text-gray-100">
+            Hace click aca para ver nuestras salas
+          </p>
+          <a className="inline-flex relative top-20">
+            <span className="h-12 flex items-center justify-center uppercase font-semibold px-8 border border-white hover:bg-black hover:text-white transition duration-500 ease-in-out">
+              Ver Salas
+            </span>
+            <span className="h-12 w-12 flex-shrink-0 flex items-center justify-center border border-l-0 border-white hover:bg-black hover:text-white transition duration-500 ease-in-out">
+              <svg
+                className="h-3 w-3"
+                aria-hidden="true"
+                focusable="false"
+                data-icon="chevron-right"
+                role="img"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 256 512"
+              >
+                <path
+                  fill="currentColor"
+                  d="M24.707 38.101L4.908 57.899c-4.686 4.686-4.686 12.284 0 16.971L185.607 256 4.908 437.13c-4.686 4.686-4.686 12.284 0 16.971L24.707 473.9c4.686 4.686 12.284 4.686 16.971 0l209.414-209.414c4.686-4.686 4.686-12.284 0-16.971L41.678 38.101c-4.687-4.687-12.285-4.687-16.971 0z"
+                />
+              </svg>
+            </span>
+          </a>
         </div>
-        {/* Jumbotron */}
-      </section>
-      {/* Section: Design Block */}
-    </>
+        <div className="overlay" />
+      </div>
+      <div id="peliculas" className="section">
+        <div className="content text-center">
+          <h1 className="text-2xl">Peliculas</h1>
+          <p className="text-gray-100">
+            Busca tus pelis favoritas presionando aqui
+          </p>
+          <a className="inline-flex relative top-20" href="">
+            <span className="h-12 flex items-center justify-center uppercase font-semibold px-8 border border-white hover:bg-black hover:text-white transition duration-500 ease-in-out">
+              Ver Peliculas
+            </span>
+            <span className="h-12 w-12 flex-shrink-0 flex items-center justify-center border border-l-0 border-white hover:bg-black hover:text-white transition duration-500 ease-in-out">
+              <svg
+                className="h-3 w-3"
+                aria-hidden="true"
+                focusable="false"
+                data-icon="chevron-right"
+                role="img"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 256 512"
+              >
+                <path
+                  fill="currentColor"
+                  d="M24.707 38.101L4.908 57.899c-4.686 4.686-4.686 12.284 0 16.971L185.607 256 4.908 437.13c-4.686 4.686-4.686 12.284 0 16.971L24.707 473.9c4.686 4.686 12.284 4.686 16.971 0l209.414-209.414c4.686-4.686 4.686-12.284 0-16.971L41.678 38.101c-4.687-4.687-12.285-4.687-16.971 0z"
+                />
+              </svg>
+            </span>
+          </a>
+        </div>
+        <div className="overlay" />
+      </div>
+      <div id="funciones" className="section">
+        <div className="content text-center">
+          <h1 className="text-2xl">Funciones</h1>
+          <p className="text-gray-100">
+            Conoce todas las funciones que tenemos para vos
+          </p>
+          <a className="inline-flex relative top-20" href="">
+            <span className="h-12 flex items-center justify-center uppercase font-semibold px-8 border border-white hover:bg-black hover:text-white transition duration-500 ease-in-out">
+              Ver funciones
+            </span>
+            <span className="h-12 w-12 flex-shrink-0 flex items-center justify-center border border-l-0 border-white hover:bg-black hover:text-white transition duration-500 ease-in-out">
+              <svg
+                className="h-3 w-3"
+                aria-hidden="true"
+                focusable="false"
+                data-icon="chevron-right"
+                role="img"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 256 512"
+              >
+                <path
+                  fill="currentColor"
+                  d="M24.707 38.101L4.908 57.899c-4.686 4.686-4.686 12.284 0 16.971L185.607 256 4.908 437.13c-4.686 4.686-4.686 12.284 0 16.971L24.707 473.9c4.686 4.686 12.284 4.686 16.971 0l209.414-209.414c4.686-4.686 4.686-12.284 0-16.971L41.678 38.101c-4.687-4.687-12.285-4.687-16.971 0z"
+                />
+              </svg>
+            </span>
+          </a>
+        </div>
+        <div className="overlay" />
+      </div>
+    </div>
   );
 }

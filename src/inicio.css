@@ -1,0 +1,80 @@
+
+.App-header {
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+  }
+  
+  .App-link {
+    color: #61dafb;
+  }
+  * {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  .container {
+    display: flex;
+    height: 100vh;
+    max-width: 100%;
+  }
+  
+  .section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    transition: flex .4s ease;
+    position: relative;
+  }
+  
+  .section .overlay {
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transition: background-color .8s ease;
+  }
+  
+  .section .content {
+    z-index: 2;
+  }
+  
+  .section:hover {
+    flex: 2;
+  }
+  
+  .section:hover .overlay {
+    background-color: rgba(0, 0, 0, 0.95);
+  }
+  
+  #salas {
+    background-image: url(https://album.mediaset.es/eimg/2022/08/24/hannibal-lecter_30d7.jpg?w=1200&h=900);
+  }
+  
+  
+  #peliculas {
+    background-image: url(https://s3.abcstatics.com/media/play/2019/09/20/padrino-kq3G--620x349@abc.jpg);
+  }
+  
+  #funciones {
+    background-image: url(https://i0.wp.com/imgs.hipertextual.com/wp-content/uploads/2020/01/hipertextual-star-wars-deseo-mas-grande-darth-vader-podria-hacerse-realidad-muy-pronto-2020659163.jpg?fit=1200%2C800&quality=50&strip=all&ssl=1);
+  }
+
+  
