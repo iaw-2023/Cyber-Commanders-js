@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./inicio.css";
 
 export default function Inicio() {
@@ -10,7 +11,7 @@ export default function Inicio() {
           <p className="text-gray-100">
             Hace click aca para ver nuestras salas
           </p>
-          <a className="inline-flex relative top-20">
+          <Link to="/salas"className="inline-flex relative top-20">
             <span className="h-12 flex items-center justify-center uppercase font-semibold px-8 border border-white hover:bg-black hover:text-white transition duration-500 ease-in-out">
               Ver Salas
             </span>
@@ -30,7 +31,7 @@ export default function Inicio() {
                 />
               </svg>
             </span>
-          </a>
+          </Link>
         </div>
         <div className="overlay" />
       </div>
@@ -40,7 +41,7 @@ export default function Inicio() {
           <p className="text-gray-100">
             Busca tus pelis favoritas presionando aqui
           </p>
-          <a className="inline-flex relative top-20" href="">
+          <Link to="/peliculas" className="inline-flex relative top-20" >
             <span className="h-12 flex items-center justify-center uppercase font-semibold px-8 border border-white hover:bg-black hover:text-white transition duration-500 ease-in-out">
               Ver Peliculas
             </span>
@@ -60,7 +61,7 @@ export default function Inicio() {
                 />
               </svg>
             </span>
-          </a>
+          </Link>
         </div>
         <div className="overlay" />
       </div>
@@ -97,3 +98,7 @@ export default function Inicio() {
     </div>
   );
 }
+
+<Link to="/peliculas">
+
+</Link>
