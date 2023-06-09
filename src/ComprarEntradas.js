@@ -9,6 +9,13 @@ export default function ComprarEntradas(promps) {
         <div className="group flex flex-col items-center rounded-md object-cover drop-shadow hover:drop-shadow-lg">
             <p>{promps.estadoEntrada.precio}</p>
             <p>{promps.estadoEntrada.id_funcion}</p>
+
+            <td className="p-2 w-1/4">
+              <button type="button" onClick={(e) => {e.preventDefault(); window.location.href = '/extras';}} className="bg-transparent hover:bg-gray-100 text-gray-100 font-semibold hover:text-gray-900 py-2 px-4 border border-gray-100 hover:border-transparent rounded">
+                comprar
+              </button>
+            </td>
+
         </div>
       </div>
     </div>
