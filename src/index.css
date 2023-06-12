@@ -29,10 +29,10 @@ code {
   margin: 15px;
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
-	gap: 20px;
+	gap: 50px;
 }
 .item {
-	border-radius: 15px;
+	border-radius: 5px;
 }
 
 .info-product {
@@ -41,9 +41,11 @@ code {
 	display: flex;
 	flex-direction: column;
 	gap: 10px;
+	text-align: center;
 }
 
 .tipo {
 	font-size: 18px;
 	font-weight: 900;
+	text-align: center;
 }

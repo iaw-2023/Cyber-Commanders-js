@@ -13,24 +13,23 @@ export default function Extras() {
   }, []);
 
   return(
-    <div className='container-items'>
-			{Array.isArray(extras)
-                ? extras.map( extra => {
-                    return(
-                    <div className='item' key={extra.id}>
-                    <figure>
-                      <img src={"https://www.infobae.com/new-resizer/EtGmhBt5kJBjkMvnFTiziNUTu_I=/768x432/filters:format(webp):quality(85)/cloudfront-us-east-1.images.arcpublishing.com/infobae/ZTCBDSR5DVBNJPMMDYTSUKAGPE.jpg"} alt={extra.producto} />
-                    </figure>
-                    <div className='info-product'>
-                      <h2>{extra.producto}</h2>
-                      <p className='tipo'>{extra.tamaño}</p>
-                      <button >
-                        Precio: $ {extra.precio} 
-                      </button>
-                    </div>
-                  </div>);
-                }) 
-            :null }
-	</div>
+    <>
+      <section className="container-items">
+        {Array.isArray(extras)
+                  ? extras.map( (extra, index) => {
+                      return(
+                        <CuadroExtra 
+                          key={extra.id} 
+                          producto={extra.producto}  
+                          tamaño={extra.tamaño}  
+                          precio={extra.precio} 
+                          item={extra}>
+                        </CuadroExtra>
+                      );
+                  }) 
+              :null }
+      </section>
+    </>
+  
   );
 }
