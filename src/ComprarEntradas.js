@@ -24,13 +24,3 @@ export default function ComprarEntradas(promps) {
 
 
 
-
-
-
-
-
-<div className="m-2 border-2 border-slate-100 bg-gray-900">
-<h1 className="text-center text-4xl text-slate-100">
-  Comprar Entrada
-</h1>
-</div>
