@@ -2,43 +2,56 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Pelis from "./Pelis";
 import ComprarEntradas from "../ComprarEntradas";
-import { useLocation } from 'react-router-dom';
-
+import { useLocation } from "react-router-dom";
 
 export default function Funciones(promps) {
   const location = useLocation();
   const link = location.state.link;
 
+  const [showPeli, setShowPeli] = useState(false);
   const [funciones, setFunciones] = useState([]);
-  const [estadoPeli, setEstadoPeli] = useState(
-    {"id":0,
-     "inicio":"",
-     "precio":0,
-     "pelicula":
-        {"id":0,
-        "duracion":"",
-        "poster":
-        "https://vxhbrvoxntfzyholqegd.supabase.co/storage/v1/object/public/images/Logo.jpg",
-        "nombre":""},
-      "sala":
-        {"capacidad":0,
-         "tipo":"",
-         "nombre":""
-        }
-      }
-  );
+  const [estadoPeli, setEstadoPeli] = useState({
+    id: 0,
+    inicio: "",
+    precio: 0,
+    pelicula: {
+      id: 0,
+      duracion: "",
+      poster:
+        "",
+      nombre: "",
+    },
+    sala: { capacidad: 0, tipo: "", nombre: "" },
+    showPeli,
+  });
 
-  const [estadoEntrada, setEstadoEntrada] = useState(
-    {
-     "id_funcion":0,
-     "precio":0,
-    }
-  );
+  const [estadoEntrada, setEstadoEntrada] = useState({
+    id_funcion: 0,
+    precio: 0,
+  });
 
   const actualizarEstado = (json) => {
     setEstadoPeli(json.funcion);
-    setEstadoEntrada({"id_funcion" : json.funcion.id, "precio" : json.funcion.precio})
+    setEstadoEntrada({
+      id_funcion: json.funcion.id,
+      precio: json.funcion.precio,
+    });
+    setShowPeli(true);
   };
+
+  function formatearFecha(original) {
+    const array = original.split(" ");
+    const fecha = array[0];
+    const hora = array[1];
+    const anio = fecha.split("-")[0];
+    const mes = fecha.split("-")[1];
+    const dia = fecha.split("-")[2];
+
+    const horas = hora.split(":")[0];
+    const minutos = hora.split(":")[1];
+
+    return dia + "/" + mes + "/" + anio + " " + horas + ":" + minutos;
+  }
 
   useEffect(() => {
     axios
@@ -51,13 +64,13 @@ export default function Funciones(promps) {
     <div>
       <div className="bg-gray-900">
         <div className="grid grid-cols-5">
-          <Pelis estadoPeli={estadoPeli} />
+          <Pelis estadoPeli={estadoPeli} showPeli={showPeli} />
           <div className="col-span-3 m-2 border-2 border-slate-100 bg-gray-900">
             <h1 className="text-center text-4xl text-slate-100">Funciones</h1>
-            <div class="flex flex-col text-white">
-              <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
-                <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
-                  <div class="overflow-x-auto max-w-full max-h-[350px] overflow-y-scroll">
+            <div className="flex flex-col text-white">
+              <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
+                <div className="inline-block min-w-full py-2 sm:px-6 lg:px-8">
+                  <div className="overflow-x-auto max-w-full max-h-[350px] overflow-y-scroll">
                     <table className="text-left min-w-full overflow-auto">
                       <thead className="border-white border-2 flex text-gray-100 w-full">
                         <tr className="flex w-full mb-4">
@@ -106,7 +119,7 @@ export default function Funciones(promps) {
                                 </td>
                                 <td className="p-2 w-1/4">
                                   <div className="text-center text-gray-100">
-                                    {funcion.inicio}
+                                    {formatearFecha(funcion.inicio)}
                                   </div>
                                 </td>
                                 <td className="p-2 w-1/4">
@@ -120,7 +133,12 @@ export default function Funciones(promps) {
                                   </div>
                                 </td>
                                 <td className="p-2 w-1/4">
-                                  <button onClick={() => actualizarEstado({funcion})} className="bg-transparent hover:bg-gray-100 text-gray-100 font-semibold hover:text-gray-900 py-2 px-4 border border-gray-100 hover:border-transparent rounded">
+                                  <button
+                                    onClick={() =>
+                                      actualizarEstado({ funcion })
+                                    }
+                                    className="bg-transparent hover:bg-gray-100 text-gray-100 font-semibold hover:text-gray-900 py-2 px-4 border border-gray-100 hover:border-transparent rounded"
+                                  >
                                     Seleccionar
                                   </button>
                                 </td>

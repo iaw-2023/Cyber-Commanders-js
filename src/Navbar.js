@@ -15,7 +15,7 @@ export default function Navbar() {
       <ul className="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 transform lg:mx-auto lg:flex lg:flex lg:w-auto lg:items-center lg:space-x-6">
         <li>
           <Link to="/">
-            <p className="text-sm text-gray-400 hover:text-gray-500">Inicio</p>
+            <p className="text-sm text-gray-700 hover:text-gray-900">Inicio</p>
           </Link>
         </li>
 
@@ -37,7 +37,7 @@ export default function Navbar() {
         </li>
         <li>
           <Link to="/peliculas">
-            <p className="text-sm text-gray-400 hover:text-gray-500">Peliculas</p>
+            <p className="text-sm text-gray-700 hover:text-gray-900">Peliculas</p>
           </Link>
         </li>
 
@@ -59,7 +59,7 @@ export default function Navbar() {
         </li>
         <li>
           <Link to="/funciones" state={{ link: url }}>
-            <p className="text-sm text-gray-400 hover:text-gray-500">Funciones</p>
+            <p className="text-sm text-gray-700 hover:text-gray-900">Funciones</p>
           </Link>
         </li>
         <li className="text-gray-300">
@@ -80,7 +80,7 @@ export default function Navbar() {
         </li>
         <li>
           <Link to="/salas">
-            <p className="text-sm text-gray-400 hover:text-gray-500">Salas</p>
+            <p className="text-sm text-gray-700 hover:text-gray-900">Salas</p>
           </Link>
         </li>
         <li className="text-gray-300">
