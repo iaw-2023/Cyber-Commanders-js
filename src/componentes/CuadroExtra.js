@@ -16,7 +16,7 @@ export default function CuadroExtra(props) {
                 <h2>{props.producto}</h2>
                 <p className='tipo' >{props.tamaño}</p>
                 <p className='tipo'> $ {props.precio}</p>
-                <button onClick={ () => addItem(props)}>Add to cart</button>
+                <button onClick={ () => addItem(props.item)}>Add to cart</button>
             </div>
         </div>
 	</div>

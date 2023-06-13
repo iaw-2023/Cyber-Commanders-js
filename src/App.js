@@ -6,6 +6,7 @@ import Peliculas from './Peliculas';
 import Navbar from './Navbar';
 import Funciones from './componentes/Funciones';
 import LogicaExtras from './LogicaExtras';
+import Split from './Split';
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
           <Route path="/salas" element={<Salas />} />
           <Route path="/peliculas" element={<Peliculas />} />
           <Route path="/funciones" element={<Funciones  />} />
-          <Route path="/extras" element={<LogicaExtras  />} />   
+          <Route path="/extras" element={<LogicaExtras />} />   
         </Routes>
       </Router>
     </div>
