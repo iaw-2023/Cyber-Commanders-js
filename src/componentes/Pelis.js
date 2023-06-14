@@ -1,8 +1,9 @@
 import React from "react";
+import "./Peliculas.css"
 
 export default function Pelis(promps) {
   return (
-    <div className="col-span-2 m-2 justify-center border-2 border-slate-100 bg-gray-900  text-center">
+    <div className="peliculas col-span-2 m-2 justify-center border-2 border-slate-100 bg-gray-900  text-center">
       <h1 className="text-4xl text-red-200 m-2 text-slate-100">Pelicula</h1>
       <div className="rounded-xl">
         <div className="group flex flex-col items-center rounded-md object-cover drop-shadow hover:drop-shadow-lg">

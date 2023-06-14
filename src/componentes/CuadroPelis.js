@@ -24,8 +24,8 @@ export default function CuadroPelis(promps) {
           Nombre: {promps.pelicula.nombre}
         </p>
       </div>  
-      <div class="flex justify-center ">
-        <button class="bg-gray-900 z-40  opacity-60 hover:opacity-100 text-white font-semibold hover:text-white text-2xl py-2 px-4 rounded">
+      <div className="flex justify-center ">
+        <button className="bg-gray-900 z-40  opacity-60 hover:opacity-100 text-white font-semibold hover:text-white text-2xl py-2 px-4 rounded">
           Ver funciones
         </button>
       </div>

@@ -6,6 +6,8 @@ import Peliculas from './Peliculas';
 import Navbar from './Navbar';
 import Funciones from './componentes/Funciones';
 
+const url = "https://cyber-commanders-laravel.vercel.app/rest/funciones";
+
 function App() {
   return (
     <>
@@ -14,8 +16,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Inicio />} />
           <Route path="/salas" element={<Salas />} />
-          <Route path="/peliculas" element={<Peliculas />} />
-          <Route path="/funciones" element={<Funciones  />} />
+          <Route path="/peliculas"  element={<Peliculas  /> } />
+          <Route path="/funciones" element={<Funciones  state={{ link: url }} />} />
         </Routes>
       </Router>
     </>

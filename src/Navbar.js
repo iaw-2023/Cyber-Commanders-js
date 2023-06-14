@@ -58,7 +58,7 @@ export default function Navbar() {
           </svg>
         </li>
         <li>
-          <Link to="/funciones" state={{ link: url }}>
+          <Link to="/funciones" state={{ link: url }} >
             <p className="text-sm text-gray-700 hover:text-gray-900">Funciones</p>
           </Link>
         </li>
@@ -79,7 +79,7 @@ export default function Navbar() {
           </svg>
         </li>
         <li>
-          <Link to="/salas">
+          <Link to="/salas" titulo="Título del componente">
             <p className="text-sm text-gray-700 hover:text-gray-900">Salas</p>
           </Link>
         </li>

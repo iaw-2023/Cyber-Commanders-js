@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./inicio.css";
 
+const url = "https://cyber-commanders-laravel.vercel.app/rest/funciones";
+
 export default function Inicio() {
   return (
     <div className="container bg-gray-600">
@@ -71,7 +73,7 @@ export default function Inicio() {
           <p className="text-gray-100">
             Conoce todas las funciones que tenemos para vos
           </p>
-          <Link to="/funciones" className="inline-flex relative top-20" >
+          <Link to="/funciones"  state={{ link: url }} className="inline-flex relative top-20" >
             <span className="h-12 flex items-center justify-center uppercase font-semibold px-8 border border-white hover:bg-black hover:text-white transition duration-500 ease-in-out">
               Ver funciones
             </span>

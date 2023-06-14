@@ -4,7 +4,7 @@ import Pelis from "./Pelis";
 import ComprarEntradas from "../ComprarEntradas";
 import { useLocation } from "react-router-dom";
 
-export default function Funciones(promps) {
+export default function Funciones(props) {
   const location = useLocation();
   const link = location.state.link;
 
@@ -57,12 +57,12 @@ export default function Funciones(promps) {
       .get(link)
       .then((response) => setFunciones(response.data.data))
       .catch((error) => console.error(error));
-  }, []);
+  },[]);
 
   return (
     <div>
-      <div className="bg-gray-900">
-        <div className="grid grid-cols-5">
+      <div className="bg-gray-900 border border-gray-100">
+        <div className=" border border-gray-100 grid grid-cols-5">
           {showPeli && <Pelis estadoPeli={estadoPeli} />}
           <div
             className={
@@ -77,7 +77,7 @@ export default function Funciones(promps) {
                 <div className="inline-block min-w-full py-2 sm:px-6 lg:px-8">
                   <div className="-white overflow-x-auto max-w-full max-h-[350px] overflow-y-scroll">
                     <table className="text-left min-w-full overflow-auto">
-                      <thead className="bg-red-500  flex text-gray-100 w-full">
+                      <thead className=" border-2 border-white  flex text-gray-100 w-full">
                         <tr className="flex w-full mb-4 ">
                           <th className="p-2 w-1/4">
                             <div className="text-center font-semibold">
@@ -113,7 +113,7 @@ export default function Funciones(promps) {
                             funcion.sala && (
                               <tr
                                 key={funcion.id}
-                                className="flex w-full m-2 "
+                                className="hover:bg-gray-600 flex w-full m-2 border border-gray-100 "
                               >
                                 <td className="p-4 w-1/4">
                                   <div className="text-center font-medium text-bold text-gray-100">
@@ -141,7 +141,7 @@ export default function Funciones(promps) {
                                       onClick={() =>
                                         actualizarEstado({ funcion })
                                       }
-                                      className="content-center align-center  bg-transparent hover:bg-red-700 text-gray-100 font-semibold hover:text-gray-900 py-2 px-4  rounded"
+                                      className="content-center align-center border border-gray-100 bg-transparent hover:bg-gray-100 text-gray-100 font-semibold hover:text-gray-900 py-2 px-4  rounded"
                                     >
                                       Seleccionar
                                     </button>
