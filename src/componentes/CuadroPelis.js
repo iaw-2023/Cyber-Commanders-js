@@ -1,9 +1,11 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 <link
   href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
   rel="stylesheet"
 />;
+
 
 export default function CuadroPelis(promps) {
   return (
