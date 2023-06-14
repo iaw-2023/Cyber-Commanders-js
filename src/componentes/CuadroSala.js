@@ -1,14 +1,25 @@
 import React from "react";
 
-export default function CuadroSalas(promps) {
-    return (
-      <div className="bg-blue-500 font-semibold text-center rounded-3xl border shadow-lg p-10 max-w-xs">
-        <h1 className="text-lg text-gray-700"> Nombre: {promps.sala.nombre} </h1>
-        <h3 className="text-sm text-gray-400 "> Tipo: {promps.sala.tipo} </h3>
-        <h3 className="text-sm text-gray-400 "> Capacidad para: {promps.sala.capacidad +"personas"} </h3>
-        <button className="bg-indigo-600 px-8 py-2 mt-8 rounded-3xl text-gray-100 font-semibold uppercase tracking-wide">
-          Ver Salas
-        </button>
+<link
+  href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
+  rel="stylesheet"
+/>;
+
+export default function CuadroSala(promps) {
+  return (
+    <a className="card" href="#">
+      <div
+        className="card__background"
+        style={{
+          backgroundImage:
+            "url(https://images.lincolncenter.org/image/upload/v1656438511/tvk7bxgttcz47ge5zemn.jpg)",
+        }}
+      />
+      <div className="card__content">
+        <h3 className="card__heading">Nombre: {promps.sala.nombre} </h3>
+        <h3 className="card__category">Capacidad {promps.sala.nombre} Personas</h3>
+        <h3 className="card__category">Tipo {promps.sala.tipo} </h3>
       </div>
-    );
-  }
+    </a>
+  );
+}
