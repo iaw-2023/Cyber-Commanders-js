@@ -71,7 +71,7 @@ export default function Inicio() {
           <p className="text-gray-100">
             Conoce todas las funciones que tenemos para vos
           </p>
-          <a className="inline-flex relative top-20" href="">
+          <Link to="/peliculas" className="inline-flex relative top-20" >
             <span className="h-12 flex items-center justify-center uppercase font-semibold px-8 border border-white hover:bg-black hover:text-white transition duration-500 ease-in-out">
               Ver funciones
             </span>
@@ -91,7 +91,7 @@ export default function Inicio() {
                 />
               </svg>
             </span>
-          </a>
+          </Link>
         </div>
         <div className="overlay" />
       </div>
