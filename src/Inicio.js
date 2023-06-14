@@ -71,7 +71,7 @@ export default function Inicio() {
           <p className="text-gray-100">
             Conoce todas las funciones que tenemos para vos
           </p>
-          <Link to="/peliculas" className="inline-flex relative top-20" >
+          <Link to="/funciones" className="inline-flex relative top-20" >
             <span className="h-12 flex items-center justify-center uppercase font-semibold px-8 border border-white hover:bg-black hover:text-white transition duration-500 ease-in-out">
               Ver funciones
             </span>
@@ -98,7 +98,3 @@ export default function Inicio() {
     </div>
   );
 }
-
-<Link to="/peliculas">
-
-</Link>

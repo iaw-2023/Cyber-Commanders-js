@@ -67,18 +67,18 @@ export default function Funciones(promps) {
           <div
             className={
               showPeli
-                ? "col-span-3 m-2 border-2 border-slate-100 bg-gray-900"
-                : "col-span-5 m-2 border-2 border-slate-100 bg-gray-900"
+                ? "col-span-3 m-2  bg-gray-900"
+                : "col-span-5 m-2  bg-gray-900"
             }
           >
             <h1 className="text-center text-4xl text-slate-100">Funciones</h1>
             <div className="flex flex-col text-white">
               <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
                 <div className="inline-block min-w-full py-2 sm:px-6 lg:px-8">
-                  <div className="overflow-x-auto max-w-full max-h-[350px] overflow-y-scroll">
+                  <div className="-white overflow-x-auto max-w-full max-h-[350px] overflow-y-scroll">
                     <table className="text-left min-w-full overflow-auto">
-                      <thead className="border-white border-2 flex text-gray-100 w-full">
-                        <tr className="flex w-full mb-4">
+                      <thead className="bg-red-500  flex text-gray-100 w-full">
+                        <tr className="flex w-full mb-4 ">
                           <th className="p-2 w-1/4">
                             <div className="text-center font-semibold">
                               Pelicula
@@ -113,7 +113,7 @@ export default function Funciones(promps) {
                             funcion.sala && (
                               <tr
                                 key={funcion.id}
-                                className="flex w-full m-2 border-white border-2"
+                                className="flex w-full m-2 "
                               >
                                 <td className="p-4 w-1/4">
                                   <div className="text-center font-medium text-bold text-gray-100">
@@ -141,7 +141,7 @@ export default function Funciones(promps) {
                                       onClick={() =>
                                         actualizarEstado({ funcion })
                                       }
-                                      className="content-center align-center bg-transparent hover:bg-gray-100 text-gray-100 font-semibold hover:text-gray-900 py-2 px-4 border border-gray-100 hover:border-transparent rounded"
+                                      className="content-center align-center  bg-transparent hover:bg-red-700 text-gray-100 font-semibold hover:text-gray-900 py-2 px-4  rounded"
                                     >
                                       Seleccionar
                                     </button>
@@ -158,7 +158,7 @@ export default function Funciones(promps) {
             </div>
           </div>
         </div>
-        <div className="m-2 border-2 border-slate-100 bg-gray-900">
+        <div className="m-2  bg-gray-900">
           <ComprarEntradas estadoEntrada={estadoEntrada} />
         </div>
       </div>
