@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
   rel="stylesheet"
 />;
 
+const baseUrl ="https://cyber-commanders-laravel.vercel.app/rest/funciones/sala/"
+
 export default function CuadroSala(promps) {
   return (
     <>
@@ -22,7 +24,7 @@ export default function CuadroSala(promps) {
         <h3 className="card__category">Tipo {promps.sala.tipo} </h3>
       </div>
       <div className="flex justify-center ">
-         <Link to="/funciones" state={{ link: url }} className="border border-gray-200 bg-gray-900 z-40  opacity-60 hover:opacity-100 text-white font-semibold hover:text-white text-2xl py-2 px-4 rounded">
+         <Link to="/funciones" state={{ link: baseUrl+promps.sala.id }} className="border border-gray-200 bg-gray-900 z-40  opacity-60 hover:opacity-100 text-white font-semibold hover:text-white text-2xl py-2 px-4 rounded">
         <button >
           Ver Funciones
         </button>

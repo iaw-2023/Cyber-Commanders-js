@@ -1,6 +1,5 @@
 import React  from 'react';
 import {jsx as _jsx} from 'react/jsx-runtime';
-import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route,} from 'react-router-dom';
 import Inicio from './Inicio';
