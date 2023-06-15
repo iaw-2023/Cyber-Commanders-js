@@ -6,7 +6,7 @@ import Peliculas from './Peliculas';
 import Navbar from './Navbar';
 import Funciones from './componentes/Funciones';
 import LogicaExtras from './LogicaExtras';
-import Split from './Split';
+
 
 function App() {
   return (

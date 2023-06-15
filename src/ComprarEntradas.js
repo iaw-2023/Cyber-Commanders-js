@@ -1,6 +1,7 @@
 
 import React from "react";
 
+
 export default function ComprarEntradas(promps) {
   return (
     <div className="col-span-2 m-2 justify-center border-2 border-slate-100 bg-gray-900 text-center">

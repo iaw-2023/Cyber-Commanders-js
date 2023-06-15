@@ -13,8 +13,8 @@ export default function LogicaExtras(promps) {
         .catch((error) => console.error(error));
     }, []);
 
-    const actualizarEstado = (json) => {
-        setEstadoCompra({"id_funcion":json.id_funcion,"precio":json.precio,"precio_extra" : json.extra.precio})
+    const actualizarEstado = ( json) => {
+        setEstadoCompra({"id_funcion":promps.id_funcion,"precio":promps.precio,"precio_extra" : json.extra.precio})
       };
   
     const [estadoCompra, setEstadoCompra] = useState(
