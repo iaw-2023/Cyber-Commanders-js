@@ -21,7 +21,7 @@ export default function Peliculas() {
 
   return (
     <>
-      <section className="hero-section">
+      <section className="peliculas hero-section">
         <div className="card-grid">
           {peliculas.map((pelicula) => (
             <CuadroPelis pelicula={pelicula}  key={pelicula.id} />

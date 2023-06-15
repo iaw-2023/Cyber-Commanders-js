@@ -11,6 +11,7 @@ const baseUrl ="https://cyber-commanders-laravel.vercel.app/rest/funciones/sala/
 export default function CuadroSala(promps) {
   return (
     <>
+     <div className="card" id={promps.sala.id} >
       <div
         className="card__background"
         style={{
@@ -29,6 +30,7 @@ export default function CuadroSala(promps) {
           Ver Funciones
         </button>
         </Link>
+      </div>
       </div>
     </>
   );
