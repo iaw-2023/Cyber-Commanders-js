@@ -14,16 +14,18 @@ export default function LogicaExtras(promps) {
     }, []);
 
     const actualizarEstado = (json) => {
-        setEstadoExtra(json.extra);
-        setEstadoCompra({"precio" : json.extra.precio})
+        setEstadoCompra({"id_funcion":json.id_funcion,"precio":json.precio,"precio_extra" : json.extra.precio})
       };
   
-      const [estadoCompra, setEstadoExtra] = useState(
-        {
-            "precio_entrada":0,
-         "precio_extra":0,
-        }
-      );
+    const [estadoCompra, setEstadoCompra] = useState(
+    {
+        "id_funcion":0,
+        "precio":0,
+        "precio_extra":0,
+    }
+    );
+
+
   return (
     <div>
       <div className="bg-black-900">
