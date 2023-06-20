@@ -1,12 +1,15 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React, { useEffect,  useState, useContext} from "react";
+import {Context} from "../context/Context";
 import Pelis from "./Pelis";
 import ComprarEntradas from "../ComprarEntradas";
-import { useLocation } from "react-router-dom";
+import { useLocation } from 'react-router-dom';
+import axios from "axios";
 
 export default function Funciones(props) {
   const location = useLocation();
   const link = location.state.link;
+
+  const cxt = useContext(Context)
 
   const [showPeli, setShowPeli] = useState(false);
   const [funciones, setFunciones] = useState([]);
@@ -24,14 +27,11 @@ export default function Funciones(props) {
     showPeli,
   });
 
-  const [estadoEntrada, setEstadoEntrada] = useState({
-    id_funcion: 0,
-    precio: 0,
-  });
+
 
   const actualizarEstado = (json) => {
     setEstadoPeli(json.funcion);
-    setEstadoEntrada({
+    cxt.setEstadoEntrada({
       id_funcion: json.funcion.id,
       precio: json.funcion.precio,
     });
@@ -159,7 +159,7 @@ export default function Funciones(props) {
           </div>
         </div>
         <div className="m-2  bg-gray-900">
-          <ComprarEntradas estadoEntrada={estadoEntrada} />
+          <ComprarEntradas estadoEntrada={cxt.estadoEntrada} />
         </div>
       </div>
     </div>
