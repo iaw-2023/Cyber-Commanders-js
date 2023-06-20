@@ -16,8 +16,6 @@ export default function ContextProvider({children} ){
 
       const [estadoCompra, setEstadoCompra] = useState(
         {
-            "id_funcion": setEstadoEntrada.id_funcion,
-            "precio": setEstadoEntrada.precio,
             "precio_extra":0,
         });
 

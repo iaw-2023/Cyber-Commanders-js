@@ -4,6 +4,8 @@ import Pelis from "./Pelis";
 import ComprarEntradas from "../ComprarEntradas";
 import { useLocation } from 'react-router-dom';
 import axios from "axios";
+import Extras from "../Extras";
+import FinalizarCompra from "../FinalizarCompra";
 
 export default function Funciones(props) {
   const location = useLocation();
@@ -158,10 +160,14 @@ export default function Funciones(props) {
             </div>
           </div>
         </div>
-        <div className="m-2  bg-gray-900">
-          <ComprarEntradas estadoEntrada={cxt.estadoEntrada} />
-        </div>
+        
+      </div>
+      <Extras></Extras>
+                        
+      <div className="m-2  bg-gray-900">
+        <FinalizarCompra />
       </div>
     </div>
+
   );
 }

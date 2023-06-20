@@ -29,8 +29,8 @@ export default function Extras(promps) {
   return (
     <div>
       <div className="bg-black-900">
-        <div className=" grid grid-cols-5 ">
-            <div className="col-span-5 m-2 border-2 border-slate-100 bg-red-900">
+        <div className=" grid grid-cols-4 ">
+            <div className="col-span-4 m-2 border-2 border-slate-100 bg-red-900">
                 <h1 className="text-center text-4xl text-slate-100">Extras</h1>
                 <div class="flex flex-col text-white">
                 <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -104,9 +104,7 @@ export default function Extras(promps) {
                 </div>
             </div>
         </div>
-        <div className="m-2 border-2 border-slate-100 bg-gray-900">
-          <FinalizarCompra  estadoCompra={ctx.estadoCompra}/>
-        </div>
+
       </div>
     </div>
   );
