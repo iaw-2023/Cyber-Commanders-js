@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useContext} from "react";
 import axios from "axios";
-import FinalizarCompra from "./FinalizarCompra";
 import { Context } from "./context/Context";
 
 export default function Extras(promps) {
@@ -17,14 +16,14 @@ export default function Extras(promps) {
     }, []);
 
     const actualizarEstado = ( json) => {
-        ctx.setEstadoCompra({
-            "id_funcion": ctx.estadoEntrada.id_funcion,
-            "precio": ctx.estadoEntrada.precio,
-            "precio_extra" : json.extra.precio})
-      };
+        ctx.setEstadoExtra(
+            ctx.estadoExtra.extras.push({
+                "id_extra": json.extra.id,
+                "precio_extra" : json.extra.precio
+            })
+        );  
+    }
   
-   
-
 
   return (
     <div>

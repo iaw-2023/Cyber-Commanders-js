@@ -12,7 +12,13 @@ export default function FinalizarCompra(promps) {
         <div className="group flex flex-col items-center rounded-md object-cover drop-shadow hover:drop-shadow-lg text-white">
           <p>funcion id: {ctx.estadoEntrada.id_funcion}</p>
           <p>precio entrada: {ctx.estadoEntrada.precio}</p>
-          <p>precio extra: {ctx.estadoCompra.precio_extra}</p>
+          {ctx.estadoExtra.extras.map(
+            (extra, key) => 
+              <div extra={extra.precio}  key={extra.id} > 
+                precio e: {extra} - id: {key}
+              </div>   
+          )}
+
 
             <td className="p-2 w-1/4">
               <button type="button"  className="bg-transparent hover:bg-gray-100 text-gray-100 font-semibold hover:text-gray-900 py-2 px-4 border border-gray-100 hover:border-transparent rounded">
