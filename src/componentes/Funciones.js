@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Pelis from "./Pelis";
-import ComprarEntradas from "../ComprarEntradas";
 import { useLocation } from "react-router-dom";
 
-export default function Funciones(props) {
+export default function Funciones() {
   const location = useLocation();
   const link = location.state.link;
 
@@ -57,7 +56,7 @@ export default function Funciones(props) {
       .get(link)
       .then((response) => setFunciones(response.data.data))
       .catch((error) => console.error(error));
-  },[]);
+  }, []);
 
   return (
     <div>
@@ -157,9 +156,6 @@ export default function Funciones(props) {
               </div>
             </div>
           </div>
-        </div>
-        <div className="m-2  bg-gray-900">
-          <ComprarEntradas estadoEntrada={estadoEntrada} />
         </div>
       </div>
     </div>

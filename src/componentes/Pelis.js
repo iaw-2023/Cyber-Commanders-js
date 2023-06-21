@@ -1,31 +1,38 @@
 import React from "react";
-import "./Peliculas.css"
+import "./Peliculas.css";
+import { Link } from "react-router-dom";
 
 export default function Pelis(promps) {
+  const funcion = promps.estadoPeli;
   return (
     <div className="peliculas col-span-2 m-2 justify-center border-2 border-slate-100 bg-gray-900  text-center">
       <h1 className="text-4xl text-red-200 m-2 text-slate-100">Pelicula</h1>
       <div className="rounded-xl">
         <div className="group flex flex-col items-center rounded-md object-cover drop-shadow hover:drop-shadow-lg">
           <img
-            src={promps.estadoPeli.pelicula.poster}
+            src={funcion.pelicula.poster}
             alt=""
             className="h-80 w-64 rounded-tl-md rounded-tr-md border-2 border-slate-100 "
           />
         </div>
         <div className="px-3 py-2">
           <h1 className="font-semibold text-slate-100">
-            Nombre: {promps.estadoPeli.pelicula.nombre}
+            Nombre: {funcion.pelicula.nombre}
           </h1>
           <p className="text-sm text-slate-100">
-            Inicio: {promps.estadoPeli.inicio}
+            Inicio: {funcion.inicio}
           </p>
           <p className="text-sm text-slate-100">
-            Duracion: {promps.estadoPeli.pelicula.duracion} minutos
+            Duracion: {funcion.pelicula.duracion} minutos
           </p>
           <p className="text-sm text-slate-100">
-            Sala: {promps.estadoPeli.sala.nombre}
+            Sala: {funcion.sala.nombre}
           </p>
+          
+            <Link to="/comprarEntrada" state={{ funcion: funcion }}> 
+              <button> Comprar Entrada </button>
+            </Link>
+       
         </div>
       </div>
     </div>
