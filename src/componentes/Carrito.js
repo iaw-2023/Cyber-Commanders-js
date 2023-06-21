@@ -1,13 +1,29 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { CartContext } from '../CartContext'
+import { useLocation } from 'react-router-dom';
 
 function Carrito() {
-  const { agregarProducto, productoEnCarrito, disminuirCantidad,eliminarProducto, total, productos, cartItems,getCantidad } = useContext(
+  const { agregarProducto, productoEnCarrito, disminuirCantidad,eliminarProductos,setTotal, total,cartItems, productos, getCantidad } = useContext(
     CartContext
   );
 
+  const location = useLocation();
+  const funcion = location.state.funcion;
+
+  useEffect(() => {
+    
+    
+    const newTotal = cartItems.reduce((accumulator, item) => {
+      return  accumulator + item.precio * item.quantity;
+    }, funcion.precio);
+    setTotal(newTotal);
+    console.log(cartItems)
+  }, [cartItems]);
+
+
   return (
     <div>
+    <h1>Funcion = {funcion.precio}</h1>
       <h2>Productos en el carrito:</h2>
       {productos.map((producto) => (
         <div className="border border-black p-2" key={producto.id}>
@@ -23,6 +39,7 @@ function Carrito() {
         </div>
       ))}
       <h3 className='text-xl p-2 m-2 '>Total de la compra: ${total}</h3>
+      <button onClick={eliminarProductos}>Comprar</button>
     </div>
   );
 }

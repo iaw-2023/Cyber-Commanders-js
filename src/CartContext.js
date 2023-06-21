@@ -15,14 +15,6 @@ const CartProvider = (props) => {
       .catch((error) => console.error(error));
   }, []);
 
-  useEffect(() => {
-    // Calcula el total de la compra cuando los elementos del carrito cambian
-    const newTotal = cartItems.reduce((accumulator, item) => {
-      return accumulator + item.precio * item.quantity;
-    }, 0);
-    console.log(cartItems)
-    setTotal(newTotal);
-  }, [cartItems]);
 
 
   const agregarProducto = (productId) => {
@@ -42,7 +34,6 @@ const CartProvider = (props) => {
       } else {
         
         setCartItems([...cartItems, { ...productToAdd, quantity: 1 }]);
-        console.log(productToAdd.id+ "id")
       }
     }
   };
@@ -57,7 +48,7 @@ const CartProvider = (props) => {
 
   
 
-  const eliminarProducto = () => {
+  const eliminarProductos = () => {
     const updatedCartItems = cartItems.filter((item) => item.quantity > 0);
     setCartItems(updatedCartItems);
   };
@@ -76,10 +67,11 @@ const CartProvider = (props) => {
     cartItems,
     total,
     agregarProducto,
-    eliminarProducto,
+    eliminarProductos,
     disminuirCantidad,
     productoEnCarrito,
     productos,
+    setTotal,
     getCantidad,
   };
 
