@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Pelis from "./Pelis";
 import { useLocation } from "react-router-dom";
+import { formatearFecha } from "../Fecha";
 
 export default function Funciones() {
   const location = useLocation();
@@ -37,19 +38,7 @@ export default function Funciones() {
     setShowPeli(true);
   };
 
-  function formatearFecha(original) {
-    const array = original.split(" ");
-    const fecha = array[0];
-    const hora = array[1];
-    const anio = fecha.split("-")[0];
-    const mes = fecha.split("-")[1];
-    const dia = fecha.split("-")[2];
 
-    const horas = hora.split(":")[0];
-    const minutos = hora.split(":")[1];
-
-    return dia + "/" + mes + "/" + anio + " " + horas + ":" + minutos;
-  }
 
   useEffect(() => {
     axios
@@ -135,7 +124,7 @@ export default function Funciones() {
                                   </div>
                                 </td>
                                 <td className="p-2 w-1/4">
-                                  <div className="">
+                                  <div className="flex flex-col items-center justify-center">
                                     <button
                                       onClick={() =>
                                         actualizarEstado({ funcion })

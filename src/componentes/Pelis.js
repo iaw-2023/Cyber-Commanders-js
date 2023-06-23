@@ -1,5 +1,5 @@
 import React from "react";
-import "./Peliculas.css";
+import "../CSS/Peliculas.css";
 import { Link } from "react-router-dom";
 
 export default function Pelis(promps) {
@@ -30,7 +30,7 @@ export default function Pelis(promps) {
           </p>
           
             <Link to="/comprarEntrada" state={{ funcion: funcion }}> 
-              <button> Comprar Entrada </button>
+              <button className="content-center align-center border border-gray-100 bg-transparent hover:bg-gray-100 text-gray-100 font-semibold hover:text-gray-900 py-2 px-4  rounded"> Comprar Entrada </button>
             </Link>
        
         </div>

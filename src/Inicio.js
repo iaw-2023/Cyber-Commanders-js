@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./inicio.css";
+import "./CSS/inicio.css";
 
 const url = "https://cyber-commanders-laravel.vercel.app/rest/funciones";
 

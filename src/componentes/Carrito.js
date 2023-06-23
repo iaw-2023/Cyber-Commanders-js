@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { CartContext } from "../CartContext";
 import { useLocation } from "react-router-dom";
-import "../Ticket.css";
+import "../CSS/Ticket.css";
 import {  getDia, getHora } from "../Fecha";
 
 function Carrito() {
@@ -30,7 +30,7 @@ function Carrito() {
   }, [cartItems]);
 
   return (
-    <div>
+    <div className="h-full">
       <div className="flex bg-gray-200">
         <div className="border border-gray-300 align-center justify-center flex flex-col w-1/3">
           <h2 className="text-3xl text-center m-2">Productos </h2>

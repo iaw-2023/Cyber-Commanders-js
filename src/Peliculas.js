@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import CuadroPelis from "./componentes/CuadroPelis";
-import "./componentes/Peliculas.css";
+import "./CSS/Peliculas.css";
 
 export default function Peliculas() {
   <link

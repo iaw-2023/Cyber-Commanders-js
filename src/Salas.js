@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import CuadroSala from "./componentes/CuadroSala";
-import "./componentes/Peliculas.css";
+import "./CSS/Salas.css";
 
 export default function Salas() {
   const [salas, setSalas] = useState([]);
@@ -15,13 +15,11 @@ export default function Salas() {
 
   return (
     <>
-      <section className="hero-section">
-        <div className="card-grid">
+        <div className="row">
           {salas.map((sala) => (
-            <CuadroSala sala={sala} key={sala.id}/>
+            <CuadroSala sala={sala} key={sala.id} />
           ))}
         </div>
-      </section>
     </>
   );
 }
