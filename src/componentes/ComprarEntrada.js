@@ -1,7 +1,6 @@
 import React from "react";
 import Extras from "./Extras";
 import Cart from "../Cart";
-import { CartContext } from "../CartContext";
 import { useLocation } from "react-router-dom";
 
 function ComprarEntrada() {
