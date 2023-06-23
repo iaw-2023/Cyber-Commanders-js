@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { CartContext } from "../CartContext";
-import { useLocation } from "react-router-dom";
+import { json, useLocation } from "react-router-dom";
+import axios from "axios";
 import "../Ticket.css";
 
 function Carrito() {
@@ -26,6 +27,39 @@ function Carrito() {
     setTotal(newTotal);
     console.log(cartItems);
   }, [cartItems]);
+
+
+  const finalizar = (funcion) => {
+    {/* update_extra/{id} */}
+
+
+
+     const customConfig = {
+      headers: {
+      'mediaType': 'application/json'
+     }};
+
+   
+
+    axios
+    .post("https://cyber-commanders-laravel.vercel.app/rest/rest/storeEntrada", {
+
+    "funcion_id": funcion.funcion_id,
+    "extras": [{
+      "id": 4,
+      "cantidad" :1,
+    }]
+
+    }, customConfig)
+    .then((response) => console.log(response.data))
+    .catch((error) => console.log(error))
+
+
+    console.log(funcion.funcion_id)
+    eliminarProductos()
+
+
+  };
 
   return (
     <div>
@@ -150,7 +184,7 @@ function Carrito() {
             <h3 className="text-2xl p-2 m-2 ">Total de la compra: ${total}</h3>
             <button
               className=" text-xl bg-transparent border-2 border-black text-black hover:bg-black hover:text-white p-2 m-2 absolute right-0"
-              onClick={eliminarProductos}
+              onClick={ () =>  finalizar(funcion) } 
             >
               Finalizar Compra
             </button>

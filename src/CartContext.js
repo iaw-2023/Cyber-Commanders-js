@@ -17,6 +17,7 @@ const CartProvider = (props) => {
 
 
 
+
   const agregarProducto = (productId) => {
     const productToAdd = productos.find((product) => product.id === productId);
 
@@ -46,7 +47,6 @@ const CartProvider = (props) => {
     return (cartItems.find((item) => item.id === productId)).quantity;
   }
 
-  
 
   const eliminarProductos = () => {
     const updatedCartItems = cartItems.filter((item) => item.quantity > 0);
