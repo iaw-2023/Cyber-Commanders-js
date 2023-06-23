@@ -2,18 +2,20 @@ import React, { useContext, useEffect } from "react";
 import { CartContext } from "../CartContext";
 import { useLocation } from "react-router-dom";
 import "../Ticket.css";
+import {  getDia, getHora } from "../Fecha";
 
 function Carrito() {
   const {
     agregarProducto,
     productoEnCarrito,
     disminuirCantidad,
-    eliminarProductos,
+    enviarRequest,
     setTotal,
     total,
     cartItems,
     productos,
     getCantidad,
+    setFuncion,
   } = useContext(CartContext);
 
   const location = useLocation();
@@ -23,8 +25,8 @@ function Carrito() {
     const newTotal = cartItems.reduce((accumulator, item) => {
       return accumulator + item.precio * item.quantity;
     }, funcion.precio);
+    setFuncion(funcion.id)
     setTotal(newTotal);
-    console.log(cartItems);
   }, [cartItems]);
 
   return (
@@ -74,14 +76,13 @@ function Carrito() {
           ))}
         </div>
         <div className="flex flex-col w-2/3">
-        <p className="text-3xl text-center m-2">Comprar Entrada</p>
+          <p className="text-3xl text-center m-2">Comprar Entrada</p>
           <>
             <link
               rel="stylesheet"
               href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
             />
             <div className="ticket">
-              
               <div className="left">
                 <div className="image">
                   <p className="admit-one">
@@ -96,7 +97,7 @@ function Carrito() {
                 <div className="ticket-info">
                   <p className="date">
                     <span>CINES</span>
-                    <span className="june-29">{funcion.inicio}</span>
+                    <span className="june-29">{getDia(funcion.inicio)}</span>
                     <span>IAW</span>
                   </p>
                   <div className="show-name">
@@ -104,16 +105,9 @@ function Carrito() {
                     <h2>{funcion.sala.nombre}</h2>
                   </div>
                   <div className="time">
-                    <p>
-                      Valor de la funcion
-                    </p>
-                    <p>
-                      ${funcion.precio}
-                    </p>
+                    <p>Valor de la funcion</p>
+                    <p>${funcion.precio}</p>
                   </div>
-                  <p className="location">
-                    <span>Total de la compra: ${total}</span>
-                  </p>
                 </div>
               </div>
               <div className="right">
@@ -127,12 +121,8 @@ function Carrito() {
                     <h1>{funcion.pelicula.nombre}</h1>
                   </div>
                   <div className="time">
-                    <p>
-                      8:00 PM <span>TO</span> 11:00 PM
-                    </p>
-                    <p>
-                      DOORS <span>@</span> 7:00 PM
-                    </p>
+                    <p>DIA : {getDia(funcion.inicio)}</p>
+                    <p>Hora : {getHora(funcion.inicio)}</p>
                   </div>
                   <div className="barcode">
                     <img
@@ -141,7 +131,7 @@ function Carrito() {
                     />
                   </div>
                   <p className="ticket-number">#20030220</p>
-                </div>               
+                </div>
               </div>
             </div>
           </>
@@ -150,13 +140,10 @@ function Carrito() {
             <h3 className="text-2xl p-2 m-2 ">Total de la compra: ${total}</h3>
             <button
               className=" text-xl bg-transparent border-2 border-black text-black hover:bg-black hover:text-white p-2 m-2 absolute right-0"
-              onClick={eliminarProductos}
+              onClick={enviarRequest}
             >
               Finalizar Compra
             </button>
-
-          
-
           </div>
         </div>
       </div>

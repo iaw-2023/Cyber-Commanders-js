@@ -60,7 +60,7 @@ export default function Funciones() {
 
   return (
     <div>
-      <div className="bg-gray-900 border border-gray-100">
+      <div className="bg-gray-900 border border-gray-100 h-screen">
         <div className=" border border-gray-100 grid grid-cols-5">
           {showPeli && <Pelis estadoPeli={estadoPeli} />}
           <div
@@ -74,7 +74,7 @@ export default function Funciones() {
             <div className="flex flex-col text-white">
               <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
                 <div className="inline-block min-w-full py-2 sm:px-6 lg:px-8">
-                  <div className="-white overflow-x-auto max-w-full max-h-[350px] overflow-y-scroll">
+                  <div className="-white overflow-x-auto max-w-full h-screen overflow-y-scroll">
                     <table className="text-left min-w-full overflow-auto">
                       <thead className=" border-2 border-white  flex text-gray-100 w-full">
                         <tr className="flex w-full mb-4 ">
