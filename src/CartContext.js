@@ -45,39 +45,7 @@ const CartProvider = (props) => {
     return cartItems.find((item) => item.id === productId).quantity;
   };
 
-  const enviarRequest = () => {
-    const apiUrl =
-      "https://cyber-commanders-laravel.vercel.app/rest/storeEntrada";
 
-    const json = cartItems.map((item) => {
-      return {
-        id: item.id,
-        cantidad: item.quantity,
-      };
-    }, {});
-
-    const config = {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    };
-
-    const respuesta = {
-      funcion_id: funcion,
-      extras: json,
-    };
-
-    const respuestaJSON = JSON.stringify(respuesta);
-
-    axios
-      .post(apiUrl, respuestaJSON,config)
-      .then((response) => {
-        console.log("Respuesta de la API:", response.data);
-      })
-      .catch((error) => {
-        console.error("Error al enviar la solicitud:", error);
-      });
-  };
 
   const disminuirCantidad = (productID) => {
     const updatedCartItems = cartItems.map((item) => {
@@ -109,7 +77,6 @@ const CartProvider = (props) => {
     cartItems,
     total,
     agregarProducto,
-    enviarRequest,
     disminuirCantidad,
     productoEnCarrito,
     productos,

@@ -1,14 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./CSS/inicio.css";
+import inicio from "./CSS/inicio.module.css";
 
 const url = "https://cyber-commanders-laravel.vercel.app/rest/funciones";
 
 export default function Inicio() {
   return (
-    <div className="container bg-gray-600">
-      <div id="salas" className="section">
-        <div className="content text-center">
+    <div className={inicio.container}>
+      <div id={inicio.salas} className={inicio.section}>
+        <div className={inicio.content}>
           <h1 className="text-2xl">Salas</h1>
           <p className="text-gray-100">
             Hace click aca para ver nuestras salas
@@ -35,10 +35,10 @@ export default function Inicio() {
             </span>
           </Link>
         </div>
-        <div className="overlay" />
+        <div className={inicio.overlay} />
       </div>
-      <div id="peliculas" className="section">
-        <div className="content text-center">
+      <div id={inicio.peliculas} className={inicio.section}>
+        <div className={inicio.content}>
           <h1 className="text-2xl">Peliculas</h1>
           <p className="text-gray-100">
             Busca tus pelis favoritas presionando aqui
@@ -65,10 +65,10 @@ export default function Inicio() {
             </span>
           </Link>
         </div>
-        <div className="overlay" />
+        <div className={inicio.overlay} />
       </div>
-      <div id="funciones" className="section">
-        <div className="content text-center">
+      <div id={inicio.funciones} className={inicio.section}>
+        <div className={inicio.content}>
           <h1 className="text-2xl">Funciones</h1>
           <p className="text-gray-100">
             Conoce todas las funciones que tenemos para vos
@@ -95,7 +95,7 @@ export default function Inicio() {
             </span>
           </Link>
         </div>
-        <div className="overlay" />
+        <div className={inicio.overlay} />
       </div>
     </div>
   );

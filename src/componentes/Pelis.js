@@ -1,5 +1,5 @@
 import React from "react";
-import "../CSS/Peliculas.css";
+import peliculas from "../CSS/Peliculas.module.css";
 import { Link } from "react-router-dom";
 
 export default function Pelis(promps) {
@@ -12,25 +12,25 @@ export default function Pelis(promps) {
           <img
             src={funcion.pelicula.poster}
             alt=""
-            className="h-80 w-64 rounded-tl-md rounded-tr-md border-2 border-slate-100 "
+            className="w-[15rem] rounded-tl-md rounded-tr-md border-2 border-slate-100 "
           />
         </div>
         <div className="px-3 py-2">
-          <h1 className="font-semibold text-slate-100">
+          <h1 className="font-semibold text-slate-100 m-2">
             Nombre: {funcion.pelicula.nombre}
           </h1>
-          <p className="text-sm text-slate-100">
+          <p className="text-md text-slate-100 m-2">
             Inicio: {funcion.inicio}
           </p>
-          <p className="text-sm text-slate-100">
+          <p className="text-md text-slate-100 m-2">
             Duracion: {funcion.pelicula.duracion} minutos
           </p>
-          <p className="text-sm text-slate-100">
+          <p className="text-md text-slate-100 m-2">
             Sala: {funcion.sala.nombre}
           </p>
           
             <Link to="/comprarEntrada" state={{ funcion: funcion }}> 
-              <button className="content-center align-center border border-gray-100 bg-transparent hover:bg-gray-100 text-gray-100 font-semibold hover:text-gray-900 py-2 px-4  rounded"> Comprar Entrada </button>
+              <button className="content-center align-center border border-gray-100 bg-transparent hover:bg-gray-100 text-gray-100 font-semibold hover:text-gray-900 py-2 px-4 m-2 rounded"> Comprar Entrada </button>
             </Link>
        
         </div>

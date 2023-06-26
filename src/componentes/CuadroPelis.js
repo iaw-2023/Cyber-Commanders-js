@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import peliculasCSS from '../CSS/Peliculas.module.css'
 
 <link
   href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
@@ -9,19 +10,19 @@ import { Link } from "react-router-dom";
 const baseUrl = "https://cyber-commanders-laravel.vercel.app/rest/funciones/pelicula/";
 export default function CuadroPelis(promps) {
   return (
-    <div className="card" id={promps.pelicula.id} >
+    <div className={peliculasCSS.card} id={promps.pelicula.id} >
       <div
-        className="card__background"
+        className={peliculasCSS.card__background}
         style={{
           backgroundImage: "url(" + promps.pelicula.poster + ")",
         }}
       />
-      <div className="card__content">
-        <p className="card__category">
-          Duracion: {promps.pelicula.duracion} minutos
-        </p>
-        <p className="card__heading text-sm">
+      <div className={peliculasCSS.card__content}>
+        <p className={peliculasCSS.card__heading}>
           Nombre: {promps.pelicula.nombre}
+        </p>
+        <p className={peliculasCSS.card__category}>
+          Duracion: {promps.pelicula.duracion} minutos
         </p>
       </div>  
       <div className="flex justify-center ">

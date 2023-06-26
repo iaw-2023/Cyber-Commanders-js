@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import CuadroPelis from "./componentes/CuadroPelis";
-import "./CSS/Peliculas.css";
+import peliculasCSS from "./CSS/Peliculas.module.css";
 
 export default function Peliculas() {
   <link
@@ -21,8 +21,8 @@ export default function Peliculas() {
 
   return (
     <>
-      <section className="peliculas hero-section">
-        <div className="card-grid">
+      <section className={peliculasCSS.peliculas+ ' ' + peliculasCSS.heroSection} >
+        <div className={peliculasCSS.card_grid}>
           {peliculas.map((pelicula) => (
             <CuadroPelis pelicula={pelicula}  key={pelicula.id} />
           ))}

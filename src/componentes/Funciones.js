@@ -29,6 +29,22 @@ export default function Funciones() {
     precio: 0,
   });
 
+  const [filter, setFilter] = useState("");
+
+
+  const handleClick = () => {
+    setFilter('');
+  };
+
+
+  const handleFilterChange = (event) => {
+    setFilter(event.target.value);
+  };
+
+  const filteredData = funciones.filter((funcion) =>
+    funcion.inicio.toLowerCase().includes(filter.toLowerCase())
+  );
+
   const actualizarEstado = (json) => {
     setEstadoPeli(json.funcion);
     setEstadoEntrada({
@@ -37,8 +53,6 @@ export default function Funciones() {
     });
     setShowPeli(true);
   };
-
-
 
   useEffect(() => {
     axios
@@ -59,10 +73,21 @@ export default function Funciones() {
                 : "col-span-5 m-2  bg-gray-900"
             }
           >
-            <h1 className="text-center text-4xl text-slate-100">Funciones</h1>
+            <h1 className="text-center text-4xl text-slate-100">Proximas Funciones</h1>
             <div className="flex flex-col text-white">
               <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
                 <div className="inline-block min-w-full py-2 sm:px-6 lg:px-8">
+                  <div className="flex justify-center items-center">
+                    <label className="m-2 text-lg ">Buscar por fecha:</label>
+                    <input
+                      className="m-2 border border-gray-300 px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
+                      type="date"
+                      value={filter}
+                      onChange={handleFilterChange}
+                      placeholder="Filtrar por nombre"
+                    />
+                    <button onClick={handleClick} className="border border-2 m-2 p-2 border-white"> Limpiar </button>
+                  </div>
                   <div className="-white overflow-x-auto max-w-full h-screen overflow-y-scroll">
                     <table className="text-left min-w-full overflow-auto">
                       <thead className=" border-2 border-white  flex text-gray-100 w-full">
@@ -95,48 +120,54 @@ export default function Funciones() {
                         </tr>
                       </thead>
                       <tbody className="bg-grey-light flex flex-col items-center justify-between w-full">
-                        {funciones.map(
-                          (funcion) =>
-                            funcion.pelicula &&
-                            funcion.sala && (
-                              <tr
-                                key={funcion.id}
-                                className="hover:bg-gray-600 flex w-full m-2 border border-gray-100 "
-                              >
-                                <td className="p-4 w-1/4">
-                                  <div className="text-center font-medium text-bold text-gray-100">
-                                    {funcion.pelicula.nombre}
-                                  </div>
-                                </td>
-                                <td className="p-2 w-1/4">
-                                  <div className="text-center text-gray-100">
-                                    {formatearFecha(funcion.inicio)}
-                                  </div>
-                                </td>
-                                <td className="p-2 w-1/4">
-                                  <div className="text-center text-gray-100">
-                                    {funcion.sala.nombre}
-                                  </div>
-                                </td>
-                                <td className="p-2 w-1/4">
-                                  <div className="text-center text-gray-100">
-                                    {funcion.precio}
-                                  </div>
-                                </td>
-                                <td className="p-2 w-1/4">
-                                  <div className="flex flex-col items-center justify-center">
-                                    <button
-                                      onClick={() =>
-                                        actualizarEstado({ funcion })
-                                      }
-                                      className="content-center align-center border border-gray-100 bg-transparent hover:bg-gray-100 text-gray-100 font-semibold hover:text-gray-900 py-2 px-4  rounded"
-                                    >
-                                      Seleccionar
-                                    </button>
-                                  </div>
-                                </td>
-                              </tr>
-                            )
+                        {(filteredData.length === 0  || funciones.length === 0)? (
+                          <tr>
+                            <td colSpan="2">No se encontraron resultados.</td>
+                          </tr>
+                        ) : (
+                          filteredData.map(
+                            (funcion) =>
+                              funcion.pelicula &&
+                              funcion.sala && (
+                                <tr
+                                  key={funcion.id}
+                                  className="hover:bg-gray-600 flex w-full m-2 border border-gray-100 "
+                                >
+                                  <td className="p-4 w-1/4">
+                                    <div className="text-center font-medium text-bold text-gray-100">
+                                      {funcion.pelicula.nombre}
+                                    </div>
+                                  </td>
+                                  <td className="p-2 w-1/4">
+                                    <div className="text-center text-gray-100">
+                                      {formatearFecha(funcion.inicio)}
+                                    </div>
+                                  </td>
+                                  <td className="p-2 w-1/4">
+                                    <div className="text-center text-gray-100">
+                                      {funcion.sala.nombre}
+                                    </div>
+                                  </td>
+                                  <td className="p-2 w-1/4">
+                                    <div className="text-center text-gray-100">
+                                      {funcion.precio}
+                                    </div>
+                                  </td>
+                                  <td className="p-2 w-1/4">
+                                    <div className="flex flex-col items-center justify-center">
+                                      <button
+                                        onClick={() =>
+                                          actualizarEstado({ funcion })
+                                        }
+                                        className="content-center align-center border border-gray-100 bg-transparent hover:bg-gray-100 text-gray-100 font-semibold hover:text-gray-900 py-2 px-4  rounded"
+                                      >
+                                        Seleccionar
+                                      </button>
+                                    </div>
+                                  </td>
+                                </tr>
+                              )
+                          )
                         )}
                       </tbody>
                     </table>

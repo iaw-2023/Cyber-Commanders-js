@@ -1,32 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Staatliches&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap");
 
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
-
-body,
-html {
-	height: 80vh;
-	display: grid;
-	font-family: "Staatliches", cursive;
-	background: #d83565;
-	color: black;
-	font-size: 14px;
-	letter-spacing: 0.1em;
-}
 
 .ticket {
 	margin: auto;
 	display: flex;
-	background: white;
 	box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
 
 .left {
 	display: flex;
+	margin-left: auto;
 }
 
 .image {
@@ -37,7 +21,7 @@ html {
 	opacity: 0.85;
 }
 
-.admit-one {
+.admitOne {
 	position: absolute;
 	color: darkgray;
 	height: 250px;
@@ -50,12 +34,12 @@ html {
 	transform: rotate(-180deg);
 }
 
-.admit-one span:nth-child(2) {
+.admitOne span:nth-child(2) {
 	color: white;
 	font-weight: 700;
 }
 
-.left .ticket-number {
+.left .ticketNumber {
 	height: 250px;
 	width: 250px;
 	display: flex;
@@ -64,7 +48,7 @@ html {
 	padding: 5px;
 }
 
-.ticket-info {
+.ticketInfo {
 	padding: 10px 30px;
 	display: flex;
 	flex-direction: column;
@@ -100,13 +84,13 @@ html {
 	font-size: 20px;
 }
 
-.show-name {
+.showName {
 	font-size: 32px;
 	font-family: "Nanum Pen Script", cursive;
 	color: #d83565;
 }
 
-.show-name h1 {
+.showName h1 {
 	font-size: 48px;
 	font-weight: 700;
 	letter-spacing: 0.1em;
@@ -151,15 +135,15 @@ html {
 	border-left: 1px dashed #404040;
 }
 
-.right .admit-one {
+.right .admitOne {
 	color: darkgray;
 }
 
-.right .admit-one span:nth-child(2) {
+.right .admitOne span:nth-child(2) {
 	color: gray;
 }
 
-.right .right-info-container {
+.right .rightInfoContainer {
 	height: 250px;
 	padding: 10px 10px 10px 35px;
 	display: flex;
@@ -168,7 +152,7 @@ html {
 	align-items: center;
 }
 
-.right .show-name h1 {
+.right .showName h1 {
 	font-size: 18px;
 }
 
@@ -180,11 +164,11 @@ html {
 	height: 100%;
 }
 
-.right .ticket-number {
+.right .ticketNumber {
 	color: gray;
 }
 
-.right .button-comprar {
+.right .buttonComprar {
   color: blue;
   background-color: #d83565;
 }
