@@ -1,14 +1,12 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState, useRef } from "react";
 import { CartContext } from "../CartContext";
 import { useLocation } from "react-router-dom";
 import { getDia, getHora } from "../Fecha";
 import Snackbar from "@mui/material/Snackbar";
-import Alert from '@mui/material/Alert';
+import Alert from "@mui/material/Alert";
 import axios from "axios";
 import styles from "../CSS/Ticket.module.css";
-
-
-
+import CorreoService from "./CorreoService";
 
 function Carrito() {
   const {
@@ -25,10 +23,15 @@ function Carrito() {
 
   const location = useLocation();
   const funcion = location.state.funcion;
-
+  const [correo, setCorreo] = useState('');
   const [openSnackbar, setOpenSnackbar] = useState(false);
-  const [snackbarMessage, setSnackbarMessage] = useState('');
-  const [snackbarSeverity, setSnackbarSeverity] = useState('success');
+  const [snackbarMessage, setSnackbarMessage] = useState("");
+  const [snackbarSeverity, setSnackbarSeverity] = useState("success");
+
+
+  const handleInputChange = (event) => {
+    setCorreo(event.target.value);
+  };
 
   const handleSnackbarClose = () => {
     setOpenSnackbar(false);
@@ -43,8 +46,10 @@ function Carrito() {
   }, [cartItems]);
 
   const enviarRequest = () => {
+
     const apiUrl =
       "https://cyber-commanders-laravel.vercel.app/rest/storeEntrada";
+
 
     const json = cartItems.map((item) => {
       return {
@@ -52,6 +57,20 @@ function Carrito() {
         cantidad: item.quantity,
       };
     }, {});
+
+    const prods = cartItems.map((item) => {
+      return {
+        producto: item.producto,
+        tamaño: item.tamaño,
+        cantidad: item.quantity,
+      };
+    }, {});
+
+    const prodsString = JSON.stringify(prods);
+    const text = prodsString.replace(/[{()}[\]""]/g, '');
+
+    const respuestaMail = "Funcion : "+funcion.pelicula.nombre +"\n Inicio :"+funcion.inicio+"\n Sala : "+funcion.sala.nombre+"\n Productos \n" +text;
+    
 
     const config = {
       headers: {
@@ -66,17 +85,19 @@ function Carrito() {
 
     const respuestaJSON = JSON.stringify(respuesta);
 
-    axios.post(apiUrl, respuestaJSON, config).then((response) => {
-      setSnackbarMessage('Exito! Gracias por tu compra');
-      setOpenSnackbar(true);
-      console.log("Response from API:", response.data);
-    })
-    .catch(error => {
-      setSnackbarMessage('Error en la compra');
-      setSnackbarSeverity('error');
-      setOpenSnackbar(true);
-      console.error('Error sending request:', error);
-    });
+    axios
+      .post(apiUrl, respuestaJSON, config)
+      .then((response) => {
+        setSnackbarMessage("Exito! Gracias por tu compra");
+        setOpenSnackbar(true);
+        CorreoService.sendEmail(correo,respuestaMail);
+      })
+      .catch((error) => {
+        setSnackbarMessage("Error en la compra");
+        setSnackbarSeverity("error");
+        setOpenSnackbar(true);
+        console.error("Error sending request:", error);
+      });
   };
 
   return (
@@ -146,7 +167,9 @@ function Carrito() {
                 <div className={styles.ticketInfo}>
                   <p className={styles.date}>
                     <span>CINES</span>
-                    <span className={styles.june-29}>{getDia(funcion.inicio)}</span>
+                    <span className={styles.june - 29}>
+                      {getDia(funcion.inicio)}
+                    </span>
                     <span>IAW</span>
                   </p>
                   <div className={styles.showName}>
@@ -184,23 +207,21 @@ function Carrito() {
               </div>
             </div>
           </div>
-
-          <div className="inline-flex mt-40">
+          <div className="inline-flex mt-20">
             <h3 className="text-2xl p-2  ">Total de la compra: ${total}</h3>
-            <button
-              className=" text-xl bg-transparent border-2 border-black text-black hover:bg-black hover:text-white p-2 ml-20"
-              onClick={enviarRequest}
-            >
-              Finalizar Compra
+            <input className="border border-black text-center mx-10" type="email" placeholder="Ingresa tu Email" value={correo} onChange={handleInputChange} />
+            <button onClick={enviarRequest} className=" text-xl bg-transparent border-2 border-black text-black hover:bg-black hover:text-white p-2 mx-10">
+                    Comprar
             </button>
+
           </div>
         </div>
       </div>
       <div>
         <Snackbar
           anchorOrigin={{
-            vertical: 'bottom',
-            horizontal: 'right'
+            vertical: "bottom",
+            horizontal: "right",
           }}
           open={openSnackbar}
           autoHideDuration={3000}
