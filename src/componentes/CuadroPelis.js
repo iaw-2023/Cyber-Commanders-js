@@ -14,7 +14,8 @@ export default function CuadroPelis(promps) {
       <div
         className={peliculasCSS.card__background}
         style={{
-          backgroundImage: "url(" + promps.pelicula.poster + ")",
+          
+          backgroundImage: `url('data:image/jpeg;base64,${promps.pelicula.poster}')`,
         }}
       />
       <div className={peliculasCSS.card__content}>
