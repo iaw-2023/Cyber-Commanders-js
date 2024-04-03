@@ -1,4 +1,4 @@
-import React from "react";
+import { useState,React } from 'react';
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Inicio from "./Inicio";
@@ -12,6 +12,8 @@ import Carrito from "./componentes/Carrito";
 const url = "https://cyber-commanders-laravel.vercel.app/rest/funciones";
 
 function App() {
+
+
   return (
     <>
       <CartProvider>

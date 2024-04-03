@@ -1,11 +1,18 @@
-import React from "react";
 import { Link } from "react-router-dom";
+import { useRef } from "react";
+import { FaBars, FaTimes } from "react-icons/fa";
+import "./CSS/navbar.css";
 
-const url = "https://cyber-commanders-laravel.vercel.app/rest/funciones";
+function Navbar() {
+  const navRef = useRef();
 
-export default function Navbar() {
+  const showNavbar = () => {
+    const nav = navRef.current;
+    nav.style.top = nav.style.top === "-100%" ? "0" : "-100%";
+  };
+
   return (
-    <nav className="relative flex items-center justify-between bg-white px-4 py-4">
+    <header>
       <Link to="/">
         <img
           src="https://vxhbrvoxntfzyholqegd.supabase.co/storage/v1/object/public/images/CINELOGO.png"
@@ -13,99 +20,28 @@ export default function Navbar() {
           alt="logo"
         />
       </Link>
-
-      <ul className="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 transform lg:mx-auto  lg:flex lg:w-auto lg:items-center lg:space-x-6">
-        <li>
-          <Link to="/">
-            <p className="text-md text-gray-700 hover:text-gray-900">Inicio</p>
-          </Link>
-        </li>
-
-        <li className="text-gray-300">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            stroke="currentColor"
-            className="current-fill h-4 w-4"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
-            />
-          </svg>
-        </li>
-        <li>
-          <Link to="/peliculas">
-            <p className="text-md text-gray-700 hover:text-gray-900">
-              Peliculas
-            </p>
-          </Link>
-        </li>
-
-        <li className="text-gray-300">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            stroke="currentColor"
-            className="current-fill h-4 w-4"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
-            />
-          </svg>
-        </li>
-        <li>
-          <Link to="/funciones" state={{ link: url }}>
-            <p className="text-md text-gray-700 hover:text-gray-900">
-              Funciones
-            </p>
-          </Link>
-        </li>
-        <li className="text-gray-300">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            stroke="currentColor"
-            className="current-fill h-4 w-4"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
-            />
-          </svg>
-        </li>
-        <li>
-          <Link to="/salas" titulo="Título del componente">
-            <p className="text-md text-gray-700 hover:text-gray-900">Salas</p>
-          </Link>
-        </li>
-        <li className="text-gray-300">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            stroke="currentColor"
-            className="current-fill h-4 w-4"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
-            />
-          </svg>
-        </li>
-      </ul>
-    </nav>
+      <nav ref={navRef}>
+        <Link to="/">
+          <p className="text-md text-gray-700 hover:text-gray-900">Inicio</p>
+        </Link>
+        <Link to="/peliculas">
+          <p className="text-md text-gray-700 hover:text-gray-900">Peliculas</p>
+        </Link>
+        <Link to="/funciones">
+          <p className="text-md text-gray-700 hover:text-gray-900">Funciones</p>
+        </Link>
+        <Link to="/salas">
+          <p className="text-md text-gray-700 hover:text-gray-900">Salas</p>
+        </Link>
+        <button className="nav-btn nav-close-btn" onClick={showNavbar}>
+          <FaTimes />
+        </button>
+      </nav>
+      <button className="nav-btn" onClick={showNavbar}>
+        <FaBars />
+      </button>
+    </header>
   );
 }
+
+export default Navbar;
