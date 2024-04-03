@@ -5,8 +5,9 @@ import { useLocation } from "react-router-dom";
 import { formatearFecha } from "../Fecha";
 
 export default function Funciones() {
+  const url = "https://cyber-commanders-laravel.vercel.app/rest/funciones";
   const location = useLocation();
-  const link = location.state.link;
+  const link = location.state ? location.state.link : url;
 
   const [showPeli, setShowPeli] = useState(false);
   const [funciones, setFunciones] = useState([]);
