@@ -7,11 +7,11 @@ export default function Navbar() {
   return (
     <nav className="relative flex items-center justify-between bg-white px-4 py-4">
       <Link to="/">
-      <img
-        src="https://vxhbrvoxntfzyholqegd.supabase.co/storage/v1/object/public/images/CINELOGO.png"
-        className="h-10"
-        alt="logo"
-      />
+        <img
+          src="https://vxhbrvoxntfzyholqegd.supabase.co/storage/v1/object/public/images/CINELOGO.png"
+          className="h-10"
+          alt="logo"
+        />
       </Link>
 
       <ul className="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 transform lg:mx-auto lg:flex lg:flex lg:w-auto lg:items-center lg:space-x-6">
@@ -39,7 +39,9 @@ export default function Navbar() {
         </li>
         <li>
           <Link to="/peliculas">
-            <p className="text-md text-gray-700 hover:text-gray-900">Peliculas</p>
+            <p className="text-md text-gray-700 hover:text-gray-900">
+              Peliculas
+            </p>
           </Link>
         </li>
 
@@ -60,8 +62,10 @@ export default function Navbar() {
           </svg>
         </li>
         <li>
-          <Link to="/funciones" state={{ link: url }} >
-            <p className="text-md text-gray-700 hover:text-gray-900">Funciones</p>
+          <Link to="/funciones" state={{ link: url }}>
+            <p className="text-md text-gray-700 hover:text-gray-900">
+              Funciones
+            </p>
           </Link>
         </li>
         <li className="text-gray-300">

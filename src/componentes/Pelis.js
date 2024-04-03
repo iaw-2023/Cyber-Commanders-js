@@ -1,16 +1,15 @@
 import React from "react";
-import peliculas from "../CSS/Peliculas.module.css";
 import { Link } from "react-router-dom";
 
 export default function Pelis(promps) {
   const funcion = promps.estadoPeli;
   return (
     <div className="peliculas col-span-2 m-2 justify-center border-2 border-slate-100 bg-gray-900  text-center">
-      <h1 className="text-4xl text-red-200 m-2 text-slate-100">Pelicula</h1>
+      <h1 className="text-4xl m-2 text-slate-100">Pelicula</h1>
       <div className="rounded-xl">
         <div className="group flex flex-col items-center rounded-md object-cover drop-shadow hover:drop-shadow-lg">
-          <img
-            src={funcion.pelicula.poster}
+          <img   
+            src={`data:image/jpeg;base64,${funcion.pelicula.poster}`}  
             alt=""
             className="w-[15rem] rounded-tl-md rounded-tr-md border-2 border-slate-100 "
           />
