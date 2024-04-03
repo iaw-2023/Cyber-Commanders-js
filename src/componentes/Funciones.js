@@ -87,7 +87,7 @@ export default function Funciones() {
                       onChange={handleFilterChange}
                       placeholder="Filtrar por nombre"
                     />
-                    <button onClick={handleClick} className="border border-2 m-2 p-2 border-white"> Limpiar </button>
+                    <button onClick={handleClick} className=" border-2 m-2 p-2 border-white"> Limpiar </button>
                   </div>
                   <div className="-white overflow-x-auto max-w-full h-screen overflow-y-scroll">
                     <table className="text-left min-w-full overflow-auto">

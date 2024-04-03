@@ -14,7 +14,7 @@ export default function Navbar() {
         />
       </Link>
 
-      <ul className="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 transform lg:mx-auto lg:flex lg:flex lg:w-auto lg:items-center lg:space-x-6">
+      <ul className="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 transform lg:mx-auto  lg:flex lg:w-auto lg:items-center lg:space-x-6">
         <li>
           <Link to="/">
             <p className="text-md text-gray-700 hover:text-gray-900">Inicio</p>

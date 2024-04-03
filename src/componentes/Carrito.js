@@ -123,13 +123,13 @@ function Carrito() {
                   </button>
                   {productoEnCarrito(producto.id) ? (
                     <input
-                      className="text-gray-700 text-md w-10 text-center text-black "
+                      className=" text-md w-10 text-center text-black "
                       value={getCantidad(producto.id)}
                       disabled
                     />
                   ) : (
                     <input
-                      className="text-gray-700 text-md w-10 text-center text-black"
+                      className="text-md w-10 text-center text-black"
                       value={0}
                       disabled
                     />
