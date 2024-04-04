@@ -73,4 +73,42 @@
     background-image: url(https://i0.wp.com/imgs.hipertextual.com/wp-content/uploads/2020/01/hipertextual-star-wars-deseo-mas-grande-darth-vader-podria-hacerse-realidad-muy-pronto-2020659163.jpg?fit=1200%2C800&quality=50&strip=all&ssl=1);
   }
 
+  .container {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+
+  .btn {
+    visibility: hidden;
+  }
+  
+  .section {
+    width: 100%;
+    height: 50vh; 
+    max-width: 100%;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    transition: flex .4s ease;
+    position: relative;
+  }
+  
+ 
+  @media (min-width: 776px) {
+    .container {
+      flex-direction: row; 
+    }
+  
+    .section {
+      height: 100%; 
+    }
+
+    .btn{
+      visibility: visible;
+    }
+  }
   
