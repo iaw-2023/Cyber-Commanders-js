@@ -48,7 +48,7 @@
   }
   
   .section .content {
-    z-index: 111;
+    z-index: 999;
     text-align: center;
   }
   

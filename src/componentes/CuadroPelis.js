@@ -29,13 +29,13 @@ export default function CuadroPelis({ pelicula }) {
             Duracion: {pelicula.duracion} minutos
           </p>
         </div>
-        <div className="flex justify-center ">
+        <div className={peliculasCSS.ver_funciones}>
           <Link
             to="/funciones"
             state={{ link: baseUrl + pelicula.id }}
-            className="border border-gray-200 bg-gray-900 z-40  opacity-60 hover:opacity-100 text-white font-semibold hover:text-white text-2xl py-2 px-4 rounded"
+            className="border border-gray-200 bg-gray-900  opacity-60 hover:opacity-100 text-white font-semibold hover:text-white text-2xl py-2 px-4 rounded"
           >
-            <button>Ver funciones</button>
+            <button >Ver funciones</button>
           </Link>
         </div>
       </div>
