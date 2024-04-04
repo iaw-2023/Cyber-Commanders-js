@@ -52,13 +52,6 @@
     text-align: center;
   }
   
-  .section:hover {
-    flex: 2;
-  }
-  
-  .section:hover .overlay {
-    background-color: rgba(0, 0, 0, 0.95);
-  }
   
   #salas {
     background-image: url(https://album.mediaset.es/eimg/2022/08/24/hannibal-lecter_30d7.jpg?w=1200&h=900);
@@ -96,7 +89,8 @@
     transition: flex .4s ease;
     position: relative;
   }
-  
+   
+  /* grande */
  
   @media (min-width: 776px) {
     .container {
@@ -109,6 +103,14 @@
 
     .btn{
       visibility: visible;
+    }
+
+    .section:hover .overlay {
+      background-color: rgba(0, 0, 0, 0);
+    }
+
+    .section:hover {
+      flex: 2;
     }
   }
   
