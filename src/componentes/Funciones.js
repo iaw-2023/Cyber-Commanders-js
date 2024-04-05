@@ -68,8 +68,8 @@ export default function Funciones() {
   useEffect(() => {
     // Función para manejar cambios en el tamaño de la pantalla
     const handleResize = () => {
-      // Condición para mostrar el div si el ancho de la pantalla es mayor que 600px
-      if (window.innerWidth < 600) {
+      // Condición para mostrar el div si el ancho de la pantalla es mayor que 800px
+      if (window.innerWidth < 800) {
         setPantallaChica(true);
       } else {
         setPantallaChica(false);
@@ -89,7 +89,7 @@ export default function Funciones() {
 
   return (
     <div>
-      <div className="bg-gray-900 border border-gray-100 h-screen">
+      <div className="bg-gray-800 border border-gray-100 h-screen">
         <div className=" border border-gray-100 grid grid-cols-5">
           {showPeli && (
             <Pelis estadoPeli={estadoPeli} mostrarVolver={pantallaChica} toggleShowPeli={toggleShowPeli} />
@@ -97,8 +97,8 @@ export default function Funciones() {
           <div
             className={
               showPeli
-                ? "col-span-3 m-2  bg-gray-900"
-                : "col-span-5 m-2  bg-gray-900"
+                ? "col-span-3 m-2  "
+                : "col-span-5 m-2  "
             }
           >
             {(!showPeli || !pantallaChica)  && (

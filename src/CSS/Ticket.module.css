@@ -3,6 +3,7 @@
 
 
 .ticket {
+	background-color: #ffffff;
 	margin: auto;
 	display: flex;
 	box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
@@ -18,7 +19,7 @@
 	width: 250px;
 	background-image: url("https://lionhearttheatre.org/wp-content/uploads/2015/08/1436894523183.jpeg");
 	background-size: contain;
-	opacity: 0.85;
+	
 }
 
 .admitOne {
@@ -58,6 +59,7 @@
 }
 
 .date {
+	color: #c41d1d;
 	border-top: 1px solid gray;
 	border-bottom: 1px solid gray;
 	padding: 5px 0;
@@ -79,15 +81,15 @@
 	text-align: right;
 }
 
-.date .june-29 {
-	color: #d83565;
+.fecha {
+	color: #dd0c0c;
 	font-size: 20px;
 }
 
 .showName {
 	font-size: 32px;
 	font-family: "Nanum Pen Script", cursive;
-	color: #d83565;
+	color: #dd0c0c;
 }
 
 .showName h1 {
@@ -109,7 +111,7 @@
 
 .time span {
 	font-weight: 400;
-	color: gray;
+	color: #dd0c0c;
 }
 
 .left .time {
@@ -136,11 +138,11 @@
 }
 
 .right .admitOne {
-	color: darkgray;
+	color: #c41d1d;
 }
 
 .right .admitOne span:nth-child(2) {
-	color: gray;
+	color: #dd0c0c;
 }
 
 .right .rightInfoContainer {
@@ -165,7 +167,7 @@
 }
 
 .right .ticketNumber {
-	color: gray;
+	color: #dd0c0c;
 }
 
 .right .buttonComprar {
