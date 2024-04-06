@@ -1,6 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Staatliches&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap");
 
+@media (max-width: 768px) {
+	.tickett {
+	  display: none; /* Esconde el ticket en dispositivos móviles */
+	}
+  }
 
 .ticket {
 	background-color: #ffffff;

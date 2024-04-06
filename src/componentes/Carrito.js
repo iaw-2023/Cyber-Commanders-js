@@ -49,7 +49,7 @@ function Carrito() {
     // Función para manejar cambios en el tamaño de la pantalla
     const handleResize = () => {
       // Condición para mostrar el div si el ancho de la pantalla es mayor que 600px
-      if (window.innerWidth < 1200) {
+      if (window.innerWidth < 600) {
         setPantallaChica(true);
       } else {
         setPantallaChica(false);
@@ -128,9 +128,13 @@ function Carrito() {
   };
 
   return (
-    <div className=" flex bg-slate-70 p-10 bg-gray-800 text-gray-300">
-      <div className="flex align-center justify-center">
-        <div className="border border-gray-300  flex flex-col w-full h-auto ">
+    <div className=" flex bg-slate-70 bg-gray-800 text-gray-300 h-auto">
+      <div className="flex align-center justify-center p-2">
+        <div
+          className={`border border-gray-300 flex flex-col ${
+            pantallaChica ? "w-screen" : "w-auto"
+          } h-auto`}
+        >
           <h2 className="text-3xl text-center m-2 ">Productos </h2>
           {productos.map((producto) => (
             <div className=" p-2 border border-gray-300 " key={producto.id}>
@@ -189,70 +193,71 @@ function Carrito() {
             </button>
           </div>
         </div>
-        <div className="flex flex-col  h-auto mx-20">
-          <div className="inline-block w-full align-center ">
-            <link
-              rel="stylesheet"
-              href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-            />
-
-            {!pantallaChica && (
-              <div className={styles.ticket}>
-                <div className={styles.left}>
-                  <div className={styles.image}>
+        <div className={styles.tickett}>
+          {!pantallaChica && (
+            <div className="flex flex-col  h-auto mx-20">
+              <div className="inline-block w-auto align-center ">
+                <link
+                  rel="stylesheet"
+                  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+                />
+                <div className={styles.ticket}>
+                  <div className={styles.left}>
+                    <div className={styles.image}>
+                      <p className={styles.admitOne}>
+                        <span>CINES IAW</span>
+                        <span>CINES IAW</span>
+                        <span>CINES IAW</span>
+                      </p>
+                      <div className={styles.ticketNumber}>
+                        <p>#20030220</p>
+                      </div>
+                    </div>
+                    <div className={styles.ticketInfo}>
+                      <p className={styles.date}>
+                        <span>CINES</span>
+                        <span className={styles.fecha}>
+                          {getDia(funcion.inicio)}
+                        </span>
+                        <span>IAW</span>
+                      </p>
+                      <div className={styles.showName}>
+                        <h1>{funcion.pelicula.nombre}</h1>
+                        <h2>{funcion.sala.nombre}</h2>
+                      </div>
+                      <div className={styles.time}>
+                        <p>Valor de la funcion</p>
+                        <p>${funcion.precio}</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className={styles.right}>
                     <p className={styles.admitOne}>
                       <span>CINES IAW</span>
                       <span>CINES IAW</span>
                       <span>CINES IAW</span>
                     </p>
-                    <div className={styles.ticketNumber}>
-                      <p>#20030220</p>
+                    <div className={styles.rightInfoContainer}>
+                      <div className={styles.showName}>
+                        <h1>{funcion.pelicula.nombre}</h1>
+                      </div>
+                      <div className="time">
+                        <p>DIA : {getDia(funcion.inicio)}</p>
+                        <p>Hora : {getHora(funcion.inicio)}</p>
+                      </div>
+                      <div className={styles.barcode}>
+                        <img
+                          src="https://external-preview.redd.it/cg8k976AV52mDvDb5jDVJABPrSZ3tpi1aXhPjgcDTbw.png?auto=webp&s=1c205ba303c1fa0370b813ea83b9e1bddb7215eb"
+                          alt="QR code"
+                        />
+                      </div>
+                      <p className={styles.ticketNumber}>#20030220</p>
                     </div>
-                  </div>
-                  <div className={styles.ticketInfo}>
-                    <p className={styles.date}>
-                      <span>CINES</span>
-                      <span className={styles.fecha}>
-                        {getDia(funcion.inicio)}
-                      </span>
-                      <span>IAW</span>
-                    </p>
-                    <div className={styles.showName}>
-                      <h1>{funcion.pelicula.nombre}</h1>
-                      <h2>{funcion.sala.nombre}</h2>
-                    </div>
-                    <div className={styles.time}>
-                      <p>Valor de la funcion</p>
-                      <p>${funcion.precio}</p>
-                    </div>
-                  </div>
-                </div>
-                <div className={styles.right}>
-                  <p className={styles.admitOne}>
-                    <span>CINES IAW</span>
-                    <span>CINES IAW</span>
-                    <span>CINES IAW</span>
-                  </p>
-                  <div className={styles.rightInfoContainer}>
-                    <div className={styles.showName}>
-                      <h1>{funcion.pelicula.nombre}</h1>
-                    </div>
-                    <div className="time">
-                      <p>DIA : {getDia(funcion.inicio)}</p>
-                      <p>Hora : {getHora(funcion.inicio)}</p>
-                    </div>
-                    <div className={styles.barcode}>
-                      <img
-                        src="https://external-preview.redd.it/cg8k976AV52mDvDb5jDVJABPrSZ3tpi1aXhPjgcDTbw.png?auto=webp&s=1c205ba303c1fa0370b813ea83b9e1bddb7215eb"
-                        alt="QR code"
-                      />
-                    </div>
-                    <p className={styles.ticketNumber}>#20030220</p>
                   </div>
                 </div>
               </div>
-            )}
-          </div>
+            </div>
+          )}
         </div>
       </div>
       <div>
