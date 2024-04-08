@@ -123,5 +123,10 @@
     margin-top: 50%;
     font-weight: bold;
   }
+
+  .ver_funciones{
+    justify-content: center;
+    display: flex;
+  }
   
   

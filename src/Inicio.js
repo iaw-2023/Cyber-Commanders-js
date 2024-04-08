@@ -7,13 +7,13 @@ const url = "https://cyber-commanders-laravel.vercel.app/rest/funciones";
 export default function Inicio() {
   return (
     <div className={inicio.container}>
-      <div id={inicio.salas} className={inicio.section}>
+      <div id={inicio.salas} className={inicio.section} onClick={() => { window.location.href = '/salas' }}>
         <div className={inicio.content}>
           <h1 className="text-2xl">Salas</h1>
           <p className="text-gray-100">
             Hace click aca para ver nuestras salas
           </p>
-          <Link to="/salas"className="inline-flex relative top-20">
+          <Link to="/salas" className={"inline-flex relative top-20 " + inicio.btn}>
             <span className="h-12 flex items-center justify-center uppercase font-semibold px-8 border border-white hover:bg-black hover:text-white transition duration-500 ease-in-out">
               Ver Salas
             </span>
@@ -37,13 +37,13 @@ export default function Inicio() {
         </div>
         <div className={inicio.overlay} />
       </div>
-      <div id={inicio.peliculas} className={inicio.section}>
+      <div id={inicio.peliculas} className={inicio.section} onClick={() => { window.location.href = '/peliculas' }}>
         <div className={inicio.content}>
           <h1 className="text-2xl">Peliculas</h1>
           <p className="text-gray-100">
             Busca tus pelis favoritas presionando aqui
           </p>
-          <Link to="/peliculas" className="inline-flex relative top-20" >
+          <Link to="/peliculas" className={"inline-flex relative top-20 " + inicio.btn}>
             <span className="h-12 flex items-center justify-center uppercase font-semibold px-8 border border-white hover:bg-black hover:text-white transition duration-500 ease-in-out">
               Ver Peliculas
             </span>
@@ -67,13 +67,13 @@ export default function Inicio() {
         </div>
         <div className={inicio.overlay} />
       </div>
-      <div id={inicio.funciones} className={inicio.section}>
+      <div id={inicio.funciones} className={inicio.section} onClick={() => { window.location.href = '/funciones' }}>
         <div className={inicio.content}>
           <h1 className="text-2xl">Funciones</h1>
           <p className="text-gray-100">
             Conoce todas las funciones que tenemos para vos
           </p>
-          <Link to="/funciones"  state={{ link: url }} className="inline-flex relative top-20" >
+          <Link to="/funciones"  state={{ link: url }} className={"inline-flex relative top-20 " + inicio.btn} >
             <span className="h-12 flex items-center justify-center uppercase font-semibold px-8 border border-white hover:bg-black hover:text-white transition duration-500 ease-in-out">
               Ver funciones
             </span>

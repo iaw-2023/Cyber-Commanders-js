@@ -10,13 +10,14 @@ function ComprarEntrada() {
 
 
   return (
-    <div className="grid grid-cols-2 gap-4">
+    <div className="grid grid-cols-2 gap-4 bg-gray-800">
       <div>
         <Extras  />
       </div>
       <div>
         <Cart funcion = {funcion} />
       </div>
+      
     </div>
   );
 }
