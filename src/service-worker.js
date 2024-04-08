@@ -70,3 +70,52 @@ self.addEventListener('message', (event) => {
 });
 
 // Any other custom service worker logic can go here.
+
+const CACHE_NAME = 'mi-pwa-cache-v1';
+const urlsToCache = [
+  '/salas',
+  '/peliculas', // Ruta que deseas cachear
+  // Agrega aquí más recursos que desees cachear
+];
+
+self.addEventListener('install', function(event) {
+  event.waitUntil(
+    caches.open(CACHE_NAME)
+      .then(function(cache) {
+        console.log('Cache abierto');
+        return cache.addAll(urlsToCache);
+      })
+  );
+});
+
+self.addEventListener('fetch', function(event) {
+  event.respondWith(
+    caches.match(event.request)
+      .then(function(response) {
+        // Devuelve la respuesta desde la caché si está disponible
+        if (response) {
+          return response;
+        }
+        // Si no está en caché, realiza la solicitud a la red y la almacena en caché para futuras solicitudes
+        return fetch(event.request)
+          .then(function(networkResponse) {
+            // Verificamos si la solicitud fue exitosa
+            if (!networkResponse || networkResponse.status !== 200 || networkResponse.type !== 'basic') {
+              return networkResponse;
+            }
+
+            // Clonamos la respuesta porque la respuesta original se consumirá y no se puede usar más de una vez
+            const responseToCache = networkResponse.clone();
+
+            // Almacenamos la respuesta en la caché
+            caches.open(CACHE_NAME)
+              .then(function(cache) {
+                cache.put(event.request, responseToCache);
+              });
+
+            // Devolvemos la respuesta original
+            return networkResponse;
+          });
+      })
+  );
+});
