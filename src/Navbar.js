@@ -33,11 +33,11 @@ function Navbar() {
         <Link to="/salas">
           <p className="text-md text-gray-700 hover:text-gray-900">Salas</p>
         </Link>
-        <button className="nav-btn nav-close-btn" onClick={showNavbar}>
+        <button className="navbar-button navbar-close" onClick={showNavbar}>
           <FaTimes />
         </button>
       </nav>
-      <button className="nav-btn" onClick={showNavbar}>
+      <button className="navbar-button" onClick={showNavbar}>
         <FaBars />
       </button>
     </header>
