@@ -20,8 +20,8 @@ export default function Pelis(promps) {
         <div className="group flex flex-col items-center rounded-md object-cover drop-shadow hover:drop-shadow-lg">
           <img
             src={`data:image/jpeg;base64,${funcion.pelicula.poster}`}
-            alt=""
             className="w-[15rem] rounded-tl-md rounded-tr-md border-2 border-yellow-600 "
+            alt={`poster de la pelicula ${funcion.pelicula.nombre}`}
           />
         </div>
         <div className="px-3 py-2">

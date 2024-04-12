@@ -203,7 +203,13 @@ function Carrito() {
                 />
                 <div className={styles.ticket}>
                   <div className={styles.left}>
-                    <div className={styles.image}>
+      
+                    <div 
+                    className={styles.image}
+                    style={{
+                      alt: `Imagen de una silla de cine`
+                    }}
+                    >
                       <p className={styles.admitOne}>
                         <span>CINES IAW</span>
                         <span>CINES IAW</span>
@@ -213,6 +219,7 @@ function Carrito() {
                         <p>#20030220</p>
                       </div>
                     </div>
+                    
                     <div className={styles.ticketInfo}>
                       <p className={styles.date}>
                         <span>CINES</span>

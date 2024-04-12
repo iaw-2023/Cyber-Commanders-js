@@ -19,6 +19,7 @@ export default function CuadroPelis({ pelicula }) {
           className={peliculasCSS.card__background}
           style={{
             backgroundImage: `url('data:image/jpeg;base64,${pelicula.poster}')`,
+            alt: `poster de la pelicula ${pelicula.nombre} `
           }}
         />
         <div className={peliculasCSS.card__content}>

@@ -21,12 +21,13 @@
 }
 
 .image {
-	height: 250px;
-	width: 250px;
-	background-image: url("https://lionhearttheatre.org/wp-content/uploads/2015/08/1436894523183.jpeg");
-	background-size: contain;
-	
+    position: relative;
+    height: 250px;
+    width: 250px;
+    background-image: url("https://lionhearttheatre.org/wp-content/uploads/2015/08/1436894523183.jpeg");
+    background-size: contain;
 }
+
 
 .admitOne {
 	position: absolute;

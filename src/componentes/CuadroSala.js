@@ -17,7 +17,7 @@ export default function CuadroSala(promps) {
           <img
             className="w-full h-full object-cover rounded-t"
             src="https://media.istockphoto.com/id/1295114854/photo/empty-red-armchairs-of-a-theater-ready-for-a-show.jpg?s=612x612&w=0&k=20&c=0rDtwzMmLbqe_8GuGw2dpjkD0MsXGywJmdmg0jDbMxQ="
-            alt="imagen de cine"
+            alt="imagen de una sala de cine"
           />
         </div>
         <div className="w-full p-3 grid grid-cols-2 ">
