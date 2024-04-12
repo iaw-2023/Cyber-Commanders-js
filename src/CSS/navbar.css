@@ -35,7 +35,7 @@ nav a:hover {
 	color: var(--secondaryColor);
 }
 
-header .nav-btn {
+header .navbar-button {
 	padding: 5px;
 	cursor: pointer;
 	background: transparent;
@@ -54,18 +54,18 @@ nav {
 }
 
 @media only screen and (max-width: 1024px) {
-	header .nav-btn {
+	header .nav-button {
 		visibility: visible;
 		opacity: 1;
 	}
 
 
   header nav {
-    position: absolute; /* Cambiar de fixed a absolute */
-    top: -100%; /* Comenzar fuera de la pantalla */
+    position: absolute; 
+    top: -100%; 
     left: 0;
     height: 100%;
-    width: 100%; /* Ocupar todo el ancho de la pantalla */
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -73,14 +73,14 @@ nav {
     gap: 1.5rem;
     background-color: var(--mainColor);
     z-index: 500;
-    transition: top 0.5s ease; /* Transición suave de la posición */
+    transition: top 0.5s ease;
 }
 
 	header .responsive_nav {
 		transform: translateY(100vh);
 	}
 
-	nav .nav-close-btn {
+	nav .navbar-close {
 		position: absolute;
 		top: 2rem;
 		right: 2rem;

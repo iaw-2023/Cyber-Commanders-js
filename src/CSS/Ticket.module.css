@@ -1,15 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Staatliches&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap");
 
-@media (max-width: 768px) {
-	.tickett {
+@media (max-width: 1000px) {
+	.container {
 	  display: none; /* Esconde el ticket en dispositivos móviles */
 	}
   }
 
 .ticket {
+	margin-left: auto;
 	background-color: #ffffff;
-	margin: auto;
+	margin-top: 10%;
 	display: flex;
 	box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
@@ -20,14 +21,15 @@
 }
 
 .image {
-	height: 250px;
-	width: 250px;
-	background-image: url("https://lionhearttheatre.org/wp-content/uploads/2015/08/1436894523183.jpeg");
-	background-size: contain;
-	
+    position: relative;
+    height: 250px;
+    width: 250px;
+    background-image: url("https://lionhearttheatre.org/wp-content/uploads/2015/08/1436894523183.jpeg");
+    background-size: contain;
 }
 
-.admitOne {
+
+.troquel {
 	position: absolute;
 	color: darkgray;
 	height: 250px;
@@ -40,7 +42,7 @@
 	transform: rotate(-180deg);
 }
 
-.admitOne span:nth-child(2) {
+.troquel span:nth-child(2) {
 	color: white;
 	font-weight: 700;
 }
@@ -142,11 +144,11 @@
 	border-left: 1px dashed #404040;
 }
 
-.right .admitOne {
+.right .troquel {
 	color: #c41d1d;
 }
 
-.right .admitOne span:nth-child(2) {
+.right .troquel span:nth-child(2) {
 	color: #dd0c0c;
 }
 

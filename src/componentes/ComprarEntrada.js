@@ -10,7 +10,7 @@ function ComprarEntrada() {
 
 
   return (
-    <div className="grid grid-cols-2 gap-4 bg-gray-800">
+    <div className="grid grid-cols-2 gap-4 bg-black">
       <div>
         <Extras  />
       </div>

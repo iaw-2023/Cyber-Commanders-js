@@ -45,23 +45,20 @@ function Carrito() {
     setTotal(newTotal);
   }, [cartItems]);
 
+  // Manejo Los cambios de tamaño de la pantalla
   useEffect(() => {
-    // Función para manejar cambios en el tamaño de la pantalla
     const handleResize = () => {
-      // Condición para mostrar el div si el ancho de la pantalla es mayor que 600px
-      if (window.innerWidth < 600) {
+      if (window.innerWidth < 1000) {
         setPantallaChica(true);
       } else {
         setPantallaChica(false);
       }
     };
-    // Agregar event listener para el cambio de tamaño de la ventana
+
     window.addEventListener("resize", handleResize);
 
-    // Llamamos a handleResize al inicio para establecer el estado inicial
     handleResize();
 
-    // Limpiar el event listener al desmontar el componente
     return () => {
       window.removeEventListener("resize", handleResize);
     };
@@ -128,16 +125,16 @@ function Carrito() {
   };
 
   return (
-    <div className=" flex bg-slate-70 bg-gray-800 text-gray-300 h-auto">
-      <div className="flex align-center justify-center p-2">
+    <div className=" flex bg-slate-70 bg-black text-gray-300 h-screen ">
+      <div className="flex align-center justify-center">
         <div
-          className={`border border-gray-300 flex flex-col ${
+          className={`border border-yellow-600 flex flex-col ${
             pantallaChica ? "w-screen" : "w-auto"
-          } h-auto`}
+          } `}
         >
           <h2 className="text-3xl text-center m-2 ">Productos </h2>
           {productos.map((producto) => (
-            <div className=" p-2 border border-gray-300 " key={producto.id}>
+            <div className=" p-2 border border-yellow-600 " key={producto.id}>
               <div className="grid grid-cols-2">
                 <div className="mx-2 place-items-center ">
                   <p className={styles.prueba}>
@@ -187,13 +184,13 @@ function Carrito() {
             />
             <button
               onClick={enviarRequest}
-              className="h-12 text-xl text-gray-300 bg-transparent border-[1px] border-gray-300 hover:text-gray-900 hover:bg-gray-300 p-2 mx-10"
+              className="h-12 text-xl text-gray-300 bg-transparent border-[1px] border-yellow-600 hover:text-gray-900 hover:bg-gray-300 p-2 mx-10"
             >
               Comprar
             </button>
           </div>
         </div>
-        <div className={styles.tickett}>
+        <div className={styles.container}>
           {!pantallaChica && (
             <div className="flex flex-col  h-auto mx-20">
               <div className="inline-block w-auto align-center ">
@@ -203,8 +200,12 @@ function Carrito() {
                 />
                 <div className={styles.ticket}>
                   <div className={styles.left}>
-                    <div className={styles.image}>
-                      <p className={styles.admitOne}>
+                    <div
+                      className={styles.image}
+                      aria-label="Imagen de una silla de cine"
+                      role="img"
+                    >
+                      <p className={styles.troquel}>
                         <span>CINES IAW</span>
                         <span>CINES IAW</span>
                         <span>CINES IAW</span>
@@ -213,6 +214,7 @@ function Carrito() {
                         <p>#20030220</p>
                       </div>
                     </div>
+
                     <div className={styles.ticketInfo}>
                       <p className={styles.date}>
                         <span>CINES</span>
@@ -241,7 +243,7 @@ function Carrito() {
                       <div className={styles.showName}>
                         <h1>{funcion.pelicula.nombre}</h1>
                       </div>
-                      <div className="time">
+                      <div className={styles.time}>
                         <p>DIA : {getDia(funcion.inicio)}</p>
                         <p>Hora : {getHora(funcion.inicio)}</p>
                       </div>
