@@ -12,7 +12,7 @@ const baseUrl =
 export default function CuadroSala(promps) {
   return (
     <>
-      <div className="bg-white w-[30rem] h-[35rem] shadow-md rounded m-5 ">
+      <div className="bg-white w-[30rem] h-[35rem] shadow-md rounded m-5 border-2 border-yellow-600 ">
         <div className="h-3/4 w-full">
           <img
             className="w-full h-full object-cover rounded-t"
@@ -25,10 +25,10 @@ export default function CuadroSala(promps) {
               <span className="text-lg font-semibold uppercase tracking-wide ">
                 {promps.sala.nombre}
               </span>
-            <p className="text-gray-600 text-sm  mt-1">
+            <p className="text-black text-sm  mt-1">
               Capacidad : {promps.sala.capacidad} personas
             </p>
-            <p className="text-gray-600 text-sm leading-5 mt-1">
+            <p className="text-black text-sm leading-5 mt-1">
               Tipo : {promps.sala.tipo}
             </p>
           </div>
@@ -36,7 +36,7 @@ export default function CuadroSala(promps) {
             <Link
               to="/funciones"
               state={{ link: baseUrl + promps.sala.id }}
-              className="border border-gray-200 bg-gray-900 z-40  opacity-60 hover:opacity-100 text-white font-semibold hover:text-white text-2xl py-2 px-4 rounded"
+              className="border border-yellow-600 bg-black z-40  hover:opacity-100 text-yellow-600 font-semibold hover:bg-yellow-600 hover:text-white text-2xl py-2 px-4 rounded"
             >
               <button>Ver Funciones</button>
             </Link>

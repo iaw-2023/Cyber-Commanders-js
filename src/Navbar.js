@@ -22,16 +22,16 @@ function Navbar() {
       </Link>
       <nav ref={navRef}>
         <Link to="/">
-          <p className="text-md text-gray-700 hover:text-gray-900">Inicio</p>
+          <p className="text-md text-black hover:text-gray-700">Inicio</p>
         </Link>
         <Link to="/peliculas">
-          <p className="text-md text-gray-700 hover:text-gray-900">Peliculas</p>
+          <p className="text-md text-black hover:text-gray-700">Peliculas</p>
         </Link>
         <Link to="/funciones">
-          <p className="text-md text-gray-700 hover:text-gray-900">Funciones</p>
+          <p className="text-md text-black hover:text-gray-700">Funciones</p>
         </Link>
         <Link to="/salas">
-          <p className="text-md text-gray-700 hover:text-gray-900">Salas</p>
+          <p className="text-md text-black hover:text-gray-700">Salas</p>
         </Link>
         <button className="navbar-button navbar-close" onClick={showNavbar}>
           <FaTimes />

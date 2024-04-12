@@ -10,9 +10,9 @@ export default function Pelis(promps) {
       className={
         mostrar
         ?
-        "peliculas col-span-5 m-2 justify-center border-2 border-slate-100 bg-gray-900  text-center"
+        "peliculas col-span-5 m-2 justify-center border-2 border-yellow-600 bg-black  text-center"
         :
-        "peliculas col-span-2 m-2 justify-center border-2 border-slate-100 bg-gray-900  text-center"
+        "peliculas col-span-2 m-2 justify-center border-2 border-yellow-600 bg-black   text-center"
       }
     >
       <h1 className="text-4xl m-2 text-slate-100">Pelicula</h1>
@@ -21,7 +21,7 @@ export default function Pelis(promps) {
           <img
             src={`data:image/jpeg;base64,${funcion.pelicula.poster}`}
             alt=""
-            className="w-[15rem] rounded-tl-md rounded-tr-md border-2 border-slate-100 "
+            className="w-[15rem] rounded-tl-md rounded-tr-md border-2 border-yellow-600 "
           />
         </div>
         <div className="px-3 py-2">
@@ -37,7 +37,7 @@ export default function Pelis(promps) {
           </p>
 
           <Link to="/comprarEntrada" state={{ funcion: funcion }}>
-            <button className="content-center align-center border border-gray-100 bg-transparent hover:bg-gray-100 text-gray-100 font-semibold hover:text-gray-900 py-2 px-4 m-2 rounded">
+            <button className="content-center align-center border border-yellow-600 bg-transparent hover:bg-yellow-600 text-yellow-600 font-semibold hover:text-gray-900 py-2 px-4 m-2 rounded">
               {" "}
               Comprar Entrada{" "}
             </button>

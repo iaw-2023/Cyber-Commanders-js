@@ -128,16 +128,16 @@ function Carrito() {
   };
 
   return (
-    <div className=" flex bg-slate-70 bg-gray-800 text-gray-300 h-auto">
+    <div className=" flex bg-slate-70 bg-black text-gray-300 h-auto p-12">
       <div className="flex align-center justify-center p-2">
         <div
-          className={`border border-gray-300 flex flex-col ${
+          className={`border border-yellow-600 flex flex-col ${
             pantallaChica ? "w-screen" : "w-auto"
           } h-auto`}
         >
           <h2 className="text-3xl text-center m-2 ">Productos </h2>
           {productos.map((producto) => (
-            <div className=" p-2 border border-gray-300 " key={producto.id}>
+            <div className=" p-2 border border-yellow-600 " key={producto.id}>
               <div className="grid grid-cols-2">
                 <div className="mx-2 place-items-center ">
                   <p className={styles.prueba}>
@@ -187,7 +187,7 @@ function Carrito() {
             />
             <button
               onClick={enviarRequest}
-              className="h-12 text-xl text-gray-300 bg-transparent border-[1px] border-gray-300 hover:text-gray-900 hover:bg-gray-300 p-2 mx-10"
+              className="h-12 text-xl text-gray-300 bg-transparent border-[1px] border-yellow-600 hover:text-gray-900 hover:bg-gray-300 p-2 mx-10"
             >
               Comprar
             </button>
@@ -241,7 +241,7 @@ function Carrito() {
                       <div className={styles.showName}>
                         <h1>{funcion.pelicula.nombre}</h1>
                       </div>
-                      <div className="time">
+                      <div className={styles.time}>
                         <p>DIA : {getDia(funcion.inicio)}</p>
                         <p>Hora : {getHora(funcion.inicio)}</p>
                       </div>

@@ -74,9 +74,8 @@ const ComponenteIA = ({ onPeliculaObtenida }) => {
   };
 
   return (
-    <div>
-      <h1 className="m-4 p-4 text-4xl text-gray-700">Nuevo!</h1>
-      <h2 className=" text-2xl text-gray-700">
+    <div className="my-4   border-y-2 border-yellow-600">
+      <h2 className=" text-2xl text-gray-100 p-4 ">
         No sabes que ver? Usa la IA para buscar una pelicula de acuerdo a tus
         gustos
       </h2>
@@ -90,14 +89,14 @@ const ComponenteIA = ({ onPeliculaObtenida }) => {
         </div>
         <button
           type="button"
-          className="m-2 p-2 content-center align-center border border-gray-100 bg-black hover:bg-gray-100 text-gray-100 font-semibold hover:text-gray-900 py-2 px-4  rounded"
+          className="m-2 p-2 content-center align-center border border-black bg-gray-100 hover:bg-black text-black font-semibold hover:text-gray-100 py-2 px-4  rounded"
           onClick={() => handleClick()}
         >
           Buscar
         </button>
         <button
           type="button"
-          className="m-2 p-2 content-center align-center border border-gray-100 bg-black hover:bg-gray-100 text-gray-100 font-semibold hover:text-gray-900 py-2 px-4  rounded"
+          className="m-2 p-2 content-center align-center border border-black bg-gray-100 hover:bg-black text-black font-semibold hover:text-gray-100 py-2 px-4  rounded"
           onClick={() => handleVolverButton()}
         >
           Volver
