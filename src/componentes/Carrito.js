@@ -202,9 +202,8 @@ function Carrito() {
                   <div className={styles.left}>
                     <div
                       className={styles.image}
-                      style={{
-                        alt: `Imagen de una silla de cine`,
-                      }}
+                      aria-label="Imagen de una silla de cine"
+                      role="img"
                     >
                       <p className={styles.troquel}>
                         <span>CINES IAW</span>
