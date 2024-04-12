@@ -66,22 +66,15 @@ export default function Funciones() {
   }, []);
 
   useEffect(() => {
-    // Función para manejar cambios en el tamaño de la pantalla
     const handleResize = () => {
-      // Condición para mostrar el div si el ancho de la pantalla es mayor que 800px
       if (window.innerWidth < 800) {
         setPantallaChica(true);
       } else {
         setPantallaChica(false);
       }
     };
-    // Agregar event listener para el cambio de tamaño de la ventana
     window.addEventListener("resize", handleResize);
-
-    // Llamamos a handleResize al inicio para establecer el estado inicial
     handleResize();
-
-    // Limpiar el event listener al desmontar el componente
     return () => {
       window.removeEventListener("resize", handleResize);
     };

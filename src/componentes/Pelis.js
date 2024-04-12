@@ -44,7 +44,7 @@ export default function Pelis(promps) {
           </Link>
           <div>
             {mostrar && (
-              <button className="content-center align-center border border-gray-100 bg-transparent hover:bg-gray-100 text-gray-100 font-semibold hover:text-gray-900 py-2 px-4 m-2 rounded" onClick={promps.toggleShowPeli}>
+              <button className="content-center align-center border border-yellow-600 bg-transparent hover:bg-yellow-600 text-yellow-600 font-semibold hover:text-gray-900 py-2 px-4 m-2 rounded" onClick={promps.toggleShowPeli}>
                 {" "}
                 Volver{" "}
               </button>

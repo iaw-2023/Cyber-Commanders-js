@@ -45,23 +45,20 @@ function Carrito() {
     setTotal(newTotal);
   }, [cartItems]);
 
+  // Manejo Los cambios de tamaño de la pantalla
   useEffect(() => {
-    // Función para manejar cambios en el tamaño de la pantalla
     const handleResize = () => {
-      // Condición para mostrar el div si el ancho de la pantalla es mayor que 600px
-      if (window.innerWidth < 600) {
+      if (window.innerWidth < 1000) {
         setPantallaChica(true);
       } else {
         setPantallaChica(false);
       }
     };
-    // Agregar event listener para el cambio de tamaño de la ventana
+
     window.addEventListener("resize", handleResize);
 
-    // Llamamos a handleResize al inicio para establecer el estado inicial
     handleResize();
 
-    // Limpiar el event listener al desmontar el componente
     return () => {
       window.removeEventListener("resize", handleResize);
     };
@@ -128,12 +125,12 @@ function Carrito() {
   };
 
   return (
-    <div className=" flex bg-slate-70 bg-black text-gray-300 h-auto p-12">
-      <div className="flex align-center justify-center p-2">
+    <div className=" flex bg-slate-70 bg-black text-gray-300 h-screen ">
+      <div className="flex align-center justify-center">
         <div
           className={`border border-yellow-600 flex flex-col ${
             pantallaChica ? "w-screen" : "w-auto"
-          } h-auto`}
+          } `}
         >
           <h2 className="text-3xl text-center m-2 ">Productos </h2>
           {productos.map((producto) => (
@@ -193,7 +190,7 @@ function Carrito() {
             </button>
           </div>
         </div>
-        <div className={styles.tickett}>
+        <div className={styles.container}>
           {!pantallaChica && (
             <div className="flex flex-col  h-auto mx-20">
               <div className="inline-block w-auto align-center ">
@@ -203,14 +200,13 @@ function Carrito() {
                 />
                 <div className={styles.ticket}>
                   <div className={styles.left}>
-      
-                    <div 
-                    className={styles.image}
-                    style={{
-                      alt: `Imagen de una silla de cine`
-                    }}
+                    <div
+                      className={styles.image}
+                      style={{
+                        alt: `Imagen de una silla de cine`,
+                      }}
                     >
-                      <p className={styles.admitOne}>
+                      <p className={styles.troquel}>
                         <span>CINES IAW</span>
                         <span>CINES IAW</span>
                         <span>CINES IAW</span>
@@ -219,7 +215,7 @@ function Carrito() {
                         <p>#20030220</p>
                       </div>
                     </div>
-                    
+
                     <div className={styles.ticketInfo}>
                       <p className={styles.date}>
                         <span>CINES</span>

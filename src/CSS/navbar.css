@@ -61,11 +61,11 @@ nav {
 
 
   header nav {
-    position: absolute; /* Cambiar de fixed a absolute */
-    top: -100%; /* Comenzar fuera de la pantalla */
+    position: absolute; 
+    top: -100%; 
     left: 0;
     height: 100%;
-    width: 100%; /* Ocupar todo el ancho de la pantalla */
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -73,7 +73,7 @@ nav {
     gap: 1.5rem;
     background-color: var(--mainColor);
     z-index: 500;
-    transition: top 0.5s ease; /* Transición suave de la posición */
+    transition: top 0.5s ease;
 }
 
 	header .responsive_nav {

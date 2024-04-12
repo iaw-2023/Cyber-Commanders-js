@@ -39,7 +39,6 @@ const ComponenteIA = ({ onPeliculaObtenida }) => {
 
   useEffect(() => {
     if (aiResponse !== "") {
-      // Solo si aiResponse no está vacío
       async function getPelicula() {
         try {
           const encodedResponse = encodeURIComponent(aiResponse);
@@ -47,7 +46,7 @@ const ComponenteIA = ({ onPeliculaObtenida }) => {
           const peli = await axios.get(url);
           setPelicula(peli.data);
           if (onPeliculaObtenida) {
-            onPeliculaObtenida(peli.data); // Pasar la película al componente padre
+            onPeliculaObtenida(peli.data); 
           }
         } catch (error) {
           console.error("Error al obtener la película:", error);
@@ -59,7 +58,7 @@ const ComponenteIA = ({ onPeliculaObtenida }) => {
       setPelicula(null);
       onPeliculaObtenida(null);
     }
-  }, [aiResponse]); // Ejecutar solo cuando aiResponse cambie
+  }, [aiResponse]); 
 
   const handleChangeSearch = (e) => {
     setSearch(e.target.value);

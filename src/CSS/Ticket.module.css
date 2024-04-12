@@ -1,8 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Staatliches&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap");
 
-@media (max-width: 768px) {
-	.tickett {
+@media (max-width: 1000px) {
+	.container {
 	  display: none; /* Esconde el ticket en dispositivos móviles */
 	}
   }
@@ -29,7 +29,7 @@
 }
 
 
-.admitOne {
+.troquel {
 	position: absolute;
 	color: darkgray;
 	height: 250px;
@@ -42,7 +42,7 @@
 	transform: rotate(-180deg);
 }
 
-.admitOne span:nth-child(2) {
+.troquel span:nth-child(2) {
 	color: white;
 	font-weight: 700;
 }
@@ -144,11 +144,11 @@
 	border-left: 1px dashed #404040;
 }
 
-.right .admitOne {
+.right .troquel {
 	color: #c41d1d;
 }
 
-.right .admitOne span:nth-child(2) {
+.right .troquel span:nth-child(2) {
 	color: #dd0c0c;
 }
 

@@ -1,7 +1,5 @@
 import emailjs from "@emailjs/browser";
 
-
-
 const sendEmail = (correo,mensaje) => {
   emailjs
     .send(
