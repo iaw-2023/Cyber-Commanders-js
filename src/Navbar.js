@@ -2,9 +2,12 @@ import { Link } from "react-router-dom";
 import { useRef } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import "./CSS/navbar.css";
+import {LoginButton,LogoutButton} from "./componentes/Auth0Buttons";
+import { useAuth0 } from "@auth0/auth0-react";
 
 function Navbar() {
   const navRef = useRef();
+  const { isAuthenticated } = useAuth0();
 
   const showNavbar = () => {
     const nav = navRef.current;
@@ -36,6 +39,7 @@ function Navbar() {
         <button className="navbar-button navbar-close" onClick={showNavbar}>
           <FaTimes />
         </button>
+        {isAuthenticated ? <LogoutButton /> : <LoginButton />}
       </nav>
       <button className="navbar-button" onClick={showNavbar}>
         <FaBars />
