@@ -69,7 +69,7 @@ function Carrito() {
   const enviarRequest = async () => {
     setLoading(true); // Activa el estado de carga
 
-    const apiUrl = "http://localhost:8000/rest/storeEntrada";
+    const apiUrl = "https://cyber-commanders-laravel.vercel.app/rest/storeEntrada";
 
     // Prepara los datos para la solicitud
     const json = cartItems.map((item) => ({

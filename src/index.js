@@ -13,7 +13,7 @@ root.render(
     clientId="dTtJKXJi8biICeYyslKaqJIkGYrvCa9t"
     authorizationParams={{
       redirect_uri: window.location.origin,
-      audience: "http://localhost:8000/rest/"
+      audience: "https://cyber-commanders-laravel.vercel.app/rest/"
     }}
   >
     <App />

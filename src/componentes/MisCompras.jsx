@@ -25,7 +25,7 @@ const MisCompras = () => {
       }
 
       const response = await axios.get(
-        "http://localhost:8000/rest/entradas/request",
+        "https://cyber-commanders-laravel.vercel.app/rest/entradas/request",
         {
           headers: {
             "Content-Type": "application/json",
