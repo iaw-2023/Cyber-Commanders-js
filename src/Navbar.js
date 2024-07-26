@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useRef } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import "./CSS/navbar.css";
-import {LoginButton,LogoutButton} from "./componentes/Auth0Buttons";
+import { LoginButton, LogoutButton } from "./componentes/Auth0Buttons";
 import { useAuth0 } from "@auth0/auth0-react";
 
 function Navbar() {
@@ -36,6 +36,13 @@ function Navbar() {
         <Link to="/salas">
           <p className="text-md text-black hover:text-gray-700">Salas</p>
         </Link>
+        {isAuthenticated && (
+          <Link to="/misCompras">
+            <p className="text-md text-black hover:text-gray-700">
+              Mis compras
+            </p>
+          </Link>
+        )}
         <button className="navbar-button navbar-close" onClick={showNavbar}>
           <FaTimes />
         </button>

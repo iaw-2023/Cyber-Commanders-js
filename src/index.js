@@ -8,19 +8,19 @@ import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <Auth0Provider
-    domain="dev-3giux1m4ssv2lw1e.us.auth0.com"
-    clientId="iqmV1pdDmhvdoqrKf6o5TkWh4m8KI0MB"
+<Auth0Provider
+    domain="dev-iqnkpmtw00ffhwi3.us.auth0.com"
+    clientId="dTtJKXJi8biICeYyslKaqJIkGYrvCa9t"
     authorizationParams={{
       redirect_uri: window.location.origin,
+      audience: "http://localhost:8000/rest/"
     }}
   >
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
+    <App />
   </Auth0Provider>
 );
 
 serviceWorkerRegistration.register();
 
 reportWebVitals();
+

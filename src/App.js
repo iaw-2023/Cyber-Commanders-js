@@ -8,6 +8,8 @@ import Navbar from "./Navbar";
 import Funciones from "./componentes/Funciones";
 import { CartProvider } from "./CartContext";
 import Carrito from "./componentes/Carrito";
+import MisCompras from './componentes/MisCompras';
+
 
 const url = "https://cyber-commanders-laravel.vercel.app/rest/funciones";
 
@@ -28,6 +30,7 @@ function App() {
               element={<Funciones state={{ link: url }} />}
             />
             <Route path="/comprarEntrada" element={<Carrito />} />
+            <Route path="/misCompras" element={<MisCompras />} />
           </Routes>
         </Router>
       </CartProvider>

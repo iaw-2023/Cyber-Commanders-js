@@ -7,6 +7,9 @@ import Alert from "@mui/material/Alert";
 import axios from "axios";
 import styles from "../CSS/Ticket.module.css";
 import CorreoService from "./CorreoService";
+import { useAuth0 } from "@auth0/auth0-react";
+import CircularProgress from "@mui/material/CircularProgress";
+import Box from "@mui/material/Box";
 
 function Carrito() {
   const {
@@ -28,10 +31,9 @@ function Carrito() {
   const [pantallaChica, setPantallaChica] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState("");
   const [snackbarSeverity, setSnackbarSeverity] = useState("success");
-
-  const handleInputChange = (event) => {
-    setCorreo(event.target.value);
-  };
+  const [loading, setLoading] = useState(false); // Estado para manejar la carga
+  const { user, isAuthenticated, isLoading, getAccessTokenSilently } =
+    useAuth0();
 
   const handleSnackbarClose = () => {
     setOpenSnackbar(false);
@@ -64,24 +66,22 @@ function Carrito() {
     };
   }, []);
 
-  const enviarRequest = () => {
-    const apiUrl =
-      "https://cyber-commanders-laravel.vercel.app/rest/storeEntrada";
+  const enviarRequest = async () => {
+    setLoading(true); // Activa el estado de carga
 
-    const json = cartItems.map((item) => {
-      return {
-        id: item.id,
-        cantidad: item.quantity,
-      };
-    }, {});
+    const apiUrl = "http://localhost:8000/rest/storeEntrada";
 
-    const prods = cartItems.map((item) => {
-      return {
-        producto: item.producto,
-        tamaño: item.tamaño,
-        cantidad: item.quantity,
-      };
-    }, {});
+    // Prepara los datos para la solicitud
+    const json = cartItems.map((item) => ({
+      id: item.id,
+      cantidad: item.quantity,
+    }));
+
+    const prods = cartItems.map((item) => ({
+      producto: item.producto,
+      tamaño: item.tamaño,
+      cantidad: item.quantity,
+    }));
 
     const prodsString = JSON.stringify(prods);
     const text = prodsString.replace(/[{()}[\]""]/g, "");
@@ -109,23 +109,37 @@ function Carrito() {
 
     const respuestaJSON = JSON.stringify(respuesta);
 
-    axios
-      .post(apiUrl, respuestaJSON, config)
-      .then((response) => {
-        setSnackbarMessage("Exito! Gracias por tu compra");
-        setOpenSnackbar(true);
-        CorreoService.sendEmail(correo, respuestaMail);
-      })
-      .catch((error) => {
-        setSnackbarMessage("Error en la compra");
-        setSnackbarSeverity("error");
-        setOpenSnackbar(true);
-        console.error("Error sending request:", error);
+    try {
+      let accessToken = "";
+      if (isAuthenticated) {
+        accessToken = await getAccessTokenSilently();
+      }
+
+      const response = await axios.post(apiUrl, respuestaJSON, {
+        ...config,
+        headers: {
+          ...config.headers,
+          Authorization: `Bearer ${accessToken}`, // Añadir el token de acceso al encabezado
+        },
       });
+
+      console.log(response.data);
+      CorreoService.sendEmail(user.email, respuestaMail);
+      setSnackbarMessage("¡Éxito! Gracias por tu compra");
+      setSnackbarSeverity("success");
+    } catch (error) {
+      setSnackbarMessage("Error en la compra");
+      setSnackbarSeverity("error");
+      console.error("Error sending request:", error);
+    } finally {
+      setLoading(false); // Desactiva el estado de carga
+      setOpenSnackbar(true);
+    }
   };
 
   return (
-    <div className=" flex bg-slate-70 bg-black text-gray-300 h-screen ">
+    <div className="flex bg-slate-70 bg-black text-gray-300 h-screen ">
+      {!loading && (
       <div className="flex align-center justify-center">
         <div
           className={`border border-yellow-600 flex flex-col ${
@@ -175,19 +189,19 @@ function Carrito() {
           ))}
           <div className="inline-flex mt-10 ">
             <h3 className="text-2xl p-2  ">Total: ${total}</h3>
-            <input
-              className="border border-black text-center mx-10 h-14 w-auto placeholder-gray-800 text-black"
-              type="email"
-              placeholder="Ingresa tu Email"
-              value={correo}
-              onChange={handleInputChange}
-            />
-            <button
-              onClick={enviarRequest}
-              className="h-12 text-xl text-gray-300 bg-transparent border-[1px] border-yellow-600 hover:text-gray-900 hover:bg-gray-300 p-2 mx-10"
-            >
-              Comprar
-            </button>
+
+            {isAuthenticated ? (
+              <>
+                <button
+                  onClick={enviarRequest}
+                  className="h-12 text-xl text-gray-300 bg-transparent border-[1px] border-yellow-600 hover:text-gray-900 hover:bg-gray-300 p-2 mx-10"
+                >
+                  Comprar
+                </button>
+              </>
+            ) : (
+              <p> Inicia sesion para comprar tu entrada</p>
+            )}
           </div>
         </div>
         <div className={styles.container}>
@@ -262,6 +276,26 @@ function Carrito() {
           )}
         </div>
       </div>
+      )}
+
+      {/* Indicador de carga */}
+      {loading && (
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            zIndex: 1300, // Para asegurarse de que esté encima de otros elementos
+          }}
+        >
+          <CircularProgress />
+        </Box>
+      )}
+
       <div>
         <Snackbar
           anchorOrigin={{
@@ -282,6 +316,7 @@ function Carrito() {
           </Alert>
         </Snackbar>
       </div>
+      
     </div>
   );
 }

@@ -3,6 +3,7 @@ import axios from "axios";
 import Pelis from "./Pelis";
 import { useLocation } from "react-router-dom";
 import { formatearFecha } from "../Fecha";
+import MisCompras from "./MisCompras";
 
 export default function Funciones() {
   const url = "https://cyber-commanders-laravel.vercel.app/rest/funciones";
