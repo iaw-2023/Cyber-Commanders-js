@@ -44,7 +44,7 @@ const MisCompras = () => {
         console.error("Error:", error.message);
       }
     } finally {
-      setLoading(false); // Desactiva el estado de carga
+      setLoading(false); 
     }
   };
 
@@ -58,11 +58,11 @@ const MisCompras = () => {
       {loading ? (
         <Box
           sx={{
-            backgroundColor: "black",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            height: "100vh", // Esto hace que el contenedor ocupe toda la altura de la ventana
+            backgroundColor: 'black',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            height: '100vh', // Esto hace que el contenedor ocupe toda la altura de la ventana
           }}
         >
           <CircularProgress />
@@ -75,30 +75,38 @@ const MisCompras = () => {
           {compras.length > 0 ? (
             compras.map((compra, index) => {
               const { date, time } = formatDateTime(compra.funcion.fecha);
+              
+              // Calcular el total de la compra
+              const totalExtras = compra.extras.reduce(
+                (total, extra) => total + extra.precio * extra.pivot.cantidad,
+                0
+              );
+              const total = compra.funcion.precio + totalExtras;
+
               return (
                 <div key={index} className={styles.compra}>
-                <h2>Película: {compra.funcion.pelicula.nombre}</h2>
-                <div>
-                  Fecha: {date} Hora {time}
+                  <h2>Película: {compra.funcion.pelicula.nombre}</h2>
+                  <div>
+                    Fecha: {date} Hora {time}
+                  </div>
+                  <div className={styles.separator} /> 
+                  {compra.extras.length > 0 && (
+                    <>
+                      <h4>Extras:</h4>
+                      <ul>
+                        {compra.extras.map((extra, extraIndex) => (
+                          <li key={extraIndex} className={styles.extra}>
+                            <p>Nombre: {extra.producto}</p>
+                            <p>Tamaño: {extra.tamaño}</p>
+                            <p>Precio: {extra.precio} $</p>
+                            <p>Cantidad: {extra.pivot.cantidad}</p>
+                          </li>
+                        ))}
+                      </ul>
+                    </>
+                  )}
+                  <h4>Total: {total} $</h4>
                 </div>
-                <h4>Precio de la Función: {compra.funcion.precio} $</h4>
-                <div className={styles.separator} /> {/* Separador */}
-                {compra.extras.length > 0 && (
-                  <>
-                    <h4>Extras:</h4>
-                    <ul>
-                      {compra.extras.map((extra, extraIndex) => (
-                        <li key={extraIndex} className={styles.extra}>
-                          <p>Nombre: {extra.producto}</p>
-                          <p>Tamaño: {extra.tamaño}</p>
-                          <p>Precio: {extra.precio} $</p>
-                        </li>
-                      ))}
-                    </ul>
-                  </>
-                )}
-              </div>
-              
               );
             })
           ) : (
