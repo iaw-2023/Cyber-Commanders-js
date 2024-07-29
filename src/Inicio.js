@@ -2,10 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import inicio from "./CSS/inicio.module.css";
 
+
 const url = "https://cyber-commanders-laravel.vercel.app/rest/funciones";
 
 export default function Inicio() {
   return (
+
     <div className={inicio.container}>
       <div id={inicio.salas} className={inicio.section} onClick={() => { window.location.href = '/salas' }}>
         <div className={inicio.content}>
@@ -98,5 +100,6 @@ export default function Inicio() {
         <div className={inicio.overlay} />
       </div>
     </div>
+
   );
 }
