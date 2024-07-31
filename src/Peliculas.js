@@ -3,6 +3,7 @@ import axios from "axios";
 import CuadroPelis from "./componentes/CuadroPelis";
 import peliculasCSS from "./CSS/Peliculas.module.css";
 import ComponenteIA from "./componentes/ComponenteIA";
+import { CardPayment } from "@mercadopago/sdk-react";
 
 export default function Peliculas() {
   <link
@@ -28,6 +29,7 @@ export default function Peliculas() {
     <div className={peliculasCSS.peliculasBackgroundImage}>
       <div className="m-2 border-b-2 border-black">
         <ComponenteIA onPeliculaObtenida={handlePeliculaObtenida} />
+
       </div>
       {peliculaObtenida !== null && (
         <section

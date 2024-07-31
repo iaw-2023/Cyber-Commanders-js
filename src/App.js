@@ -9,6 +9,7 @@ import Funciones from "./componentes/Funciones";
 import { CartProvider } from "./CartContext";
 import Carrito from "./componentes/Carrito";
 import MisCompras from './componentes/MisCompras';
+import MercadoPago from './componentes/MercadoPago';
 
 
 const url = "https://cyber-commanders-laravel.vercel.app/rest/funciones";
@@ -31,6 +32,7 @@ function App() {
             />
             <Route path="/comprarEntrada" element={<Carrito />} />
             <Route path="/misCompras" element={<MisCompras />} />
+            <Route path="/finalizar" element={<MercadoPago />} />
           </Routes>
         </Router>
       </CartProvider>
