@@ -10,6 +10,7 @@ import { CartProvider } from "./CartContext";
 import Carrito from "./componentes/Carrito";
 import MisCompras from './componentes/MisCompras';
 import MercadoPago from './componentes/MercadoPago';
+import {NavbarDefault, NavbarSimple, NavList} from './componentes/NavBar'
 
 
 const url = "https://cyber-commanders-laravel.vercel.app/rest/funciones";
@@ -21,7 +22,9 @@ function App() {
     <>
       <CartProvider>
         <Router>
-          <Navbar />
+          
+          <NavbarDefault />
+
           <Routes>
             <Route path="/" element={<Inicio />} />
             <Route path="/salas" element={<Salas />} />

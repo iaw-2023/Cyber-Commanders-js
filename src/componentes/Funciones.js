@@ -4,12 +4,14 @@ import Pelis from "./Pelis";
 import { useLocation } from "react-router-dom";
 import { formatearFecha } from "../Fecha";
 import MisCompras from "./MisCompras";
+import CircularProgress from "@mui/material/CircularProgress";
 
 export default function Funciones() {
   const url = "https://cyber-commanders-laravel.vercel.app/rest/funciones";
   const location = useLocation();
   const link = location.state ? location.state.link : url;
 
+  const [loading, setLoading] = useState(true);
   const [showPeli, setShowPeli] = useState(false);
   const [funciones, setFunciones] = useState([]);
   const [pantallaChica, setPantallaChica] = useState(false);
@@ -62,9 +64,15 @@ export default function Funciones() {
   useEffect(() => {
     axios
       .get(link)
-      .then((response) => setFunciones(response.data.data))
-      .catch((error) => console.error(error));
-  }, []);
+      .then((response) => {
+        setFunciones(response.data.data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error(error);
+        setLoading(false);
+      });
+  }, [link]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -82,20 +90,22 @@ export default function Funciones() {
   }, []);
 
   return (
-    <div>
-      <div className="bg-black border border-gray-100 h-full">
+    <div className="bg-black border border-gray-100 h-full">
+      {loading ? (
+        <div className="flex items-center justify-center h-screen">
+          <CircularProgress />
+        </div>
+      ) : (
         <div className=" border border-gray-100 grid grid-cols-5">
           {showPeli && (
-            <Pelis estadoPeli={estadoPeli} mostrarVolver={pantallaChica} toggleShowPeli={toggleShowPeli} />
+            <Pelis
+              estadoPeli={estadoPeli}
+              mostrarVolver={pantallaChica}
+              toggleShowPeli={toggleShowPeli}
+            />
           )}
-          <div
-            className={
-              showPeli
-                ? "col-span-3 m-2  "
-                : "col-span-5 m-2  "
-            }
-          >
-            {(!showPeli || !pantallaChica)  && (
+          <div className={showPeli ? "col-span-3 m-2  " : "col-span-5 m-2  "}>
+            {(!showPeli || !pantallaChica) && (
               <div>
                 <h1 className="text-center text-4xl text-slate-100">
                   Proximas Funciones
@@ -118,8 +128,7 @@ export default function Funciones() {
                           onClick={handleClick}
                           className=" border-2 m-2 p-2 border-yellow-600"
                         >
-                          {" "}
-                          Limpiar{" "}
+                          Limpiar
                         </button>
                       </div>
                       <div className="-white overflow-x-auto max-w-full h-screen overflow-y-scroll">
@@ -216,7 +225,7 @@ export default function Funciones() {
             )}
           </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }
