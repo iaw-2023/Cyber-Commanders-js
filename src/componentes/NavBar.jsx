@@ -89,7 +89,10 @@ export function NavbarDefault() {
         <div className="hidden lg:block">{navList}</div>
         <div className="flex items-center gap-x-1">
           <Button variant="text" size="sm" className="hidden lg:inline-block">
-            <LoginButton />
+            {
+              isAuthenticated? <LogoutButton /> : <LoginButton />
+            }
+            
           </Button>
         </div>
         <IconButton
@@ -135,7 +138,9 @@ export function NavbarDefault() {
           {navList}
           <div className="flex items-center gap-x-1">
             <Button fullWidth variant="text" size="sm" className="">
-              <LoginButton />
+            {
+              isAuthenticated? <LogoutButton /> : <LoginButton />
+            }
             </Button>
           </div>
         </div>
