@@ -9,6 +9,8 @@
     "@emotion/styled": "^11.13.0",
     "@fontsource/roboto": "^5.0.3",
     "@google/generative-ai": "^0.3.1",
+    "@heroicons/react": "^2.1.5",
+    "@material-tailwind/react": "^2.1.9",
     "@mercadopago/sdk-react": "^0.0.19",
     "@mui/icons-material": "^5.16.6",
     "@mui/material": "^5.16.6",

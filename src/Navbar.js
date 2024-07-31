@@ -1,56 +1,53 @@
+
+
 import { Link } from "react-router-dom";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
-import "./CSS/navbar.css";
+import styles from "././CSS/Navbar.module.css"; // Importa el módulo CSS
 import { LoginButton, LogoutButton } from "./componentes/Auth0Buttons";
 import { useAuth0 } from "@auth0/auth0-react";
 
 function Navbar() {
   const navRef = useRef();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { isAuthenticated } = useAuth0();
 
-  const showNavbar = () => {
-    const nav = navRef.current;
-    nav.style.top = nav.style.top === "-100%" ? "0" : "-100%";
+  const toggleNavbar = () => {
+    setIsMenuOpen(!isMenuOpen);
   };
 
   return (
-    <header>
+    <header className={styles.header}>
       <Link to="/">
         <img
           src="https://vxhbrvoxntfzyholqegd.supabase.co/storage/v1/object/public/images/CINELOGO.png"
-          className="h-10"
+          className={styles.logo}
           alt="logo"
         />
       </Link>
-      <nav ref={navRef}>
-        <Link to="/">
-          <p className="text-md text-black hover:text-gray-700">Inicio</p>
+      <nav className={`${styles.navMenu} ${isMenuOpen ? styles.active : ""}`} ref={navRef}>
+        <Link to="/" className={styles.navLink}>
+          Inicio
         </Link>
-        <Link to="/peliculas">
-          <p className="text-md text-black hover:text-gray-700">Peliculas</p>
+        <Link to="/peliculas" className={styles.navLink}>
+          Peliculas
         </Link>
-        <Link to="/funciones">
-          <p className="text-md text-black hover:text-gray-700">Funciones</p>
+        <Link to="/funciones" className={styles.navLink}>
+          Funciones
         </Link>
-        <Link to="/salas">
-          <p className="text-md text-black hover:text-gray-700">Salas</p>
+        <Link to="/salas" className={styles.navLink}>
+          Salas
         </Link>
         {isAuthenticated && (
-          <Link to="/misCompras">
-            <p className="text-md text-black hover:text-gray-700">
-              Mis compras
-            </p>
+          <Link to="/misCompras" className={styles.navLink}>
+            Mis compras
           </Link>
         )}
-        <button className="navbar-button navbar-close" onClick={showNavbar}>
-          <FaTimes />
+        <button className={styles.navbarButton} onClick={toggleNavbar}>
+          {isMenuOpen ? <FaTimes /> : <FaBars />}
         </button>
         {isAuthenticated ? <LogoutButton /> : <LoginButton />}
       </nav>
-      <button className="navbar-button" onClick={showNavbar}>
-        <FaBars />
-      </button>
     </header>
   );
 }
