@@ -8,7 +8,7 @@ import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-<Auth0Provider
+  <Auth0Provider
     domain="dev-iqnkpmtw00ffhwi3.us.auth0.com"
     clientId="dTtJKXJi8biICeYyslKaqJIkGYrvCa9t"
     authorizationParams={{
@@ -23,4 +23,4 @@ root.render(
 serviceWorkerRegistration.register();
 
 reportWebVitals();
-
+ 

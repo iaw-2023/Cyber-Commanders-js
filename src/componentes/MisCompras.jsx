@@ -23,7 +23,6 @@ const MisCompras = () => {
       if (isAuthenticated) {
         accessToken = await getAccessTokenSilently();
       }
-
       const response = await axios.get(
         "https://cyber-commanders-laravel.vercel.app/rest/entradas/request",
         {
