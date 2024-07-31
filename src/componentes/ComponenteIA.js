@@ -73,7 +73,7 @@ const ComponenteIA = ({ onPeliculaObtenida }) => {
   };
 
   return (
-    <div className="my-4   border-y-2 border-yellow-600">
+    <div className="border-y-2 border-yellow-600">
       <h2 className=" text-2xl text-gray-100 p-4 ">
         No sabes que ver? Usa la IA para buscar una pelicula de acuerdo a tus
         gustos

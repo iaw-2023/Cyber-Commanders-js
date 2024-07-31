@@ -27,7 +27,7 @@ export default function Peliculas() {
 
   return (
     <div className={peliculasCSS.peliculasBackgroundImage}>
-      <div className="m-2 border-b-2 border-black">
+      <div className=" border-b-2 border-black">
         <ComponenteIA onPeliculaObtenida={handlePeliculaObtenida} />
 
       </div>
