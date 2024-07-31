@@ -40,6 +40,15 @@
     background-color: #000000;
     
   }
+
+  .fullScreenCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Altura del viewport */
+    width: 100vw;  /* Ancho del viewport */
+    background-color: black; /* Fondo negro para contraste */
+  }
   
   .card_grid{
     display: grid;

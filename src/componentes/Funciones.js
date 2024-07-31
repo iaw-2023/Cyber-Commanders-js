@@ -90,13 +90,13 @@ export default function Funciones() {
   }, []);
 
   return (
-    <div className="bg-black border border-gray-100 h-full">
+    <div className="bg-black border  h-full">
       {loading ? (
         <div className="flex items-center justify-center h-screen">
           <CircularProgress />
         </div>
       ) : (
-        <div className=" border border-gray-100 grid grid-cols-5">
+        <div className=" border grid grid-cols-5">
           {showPeli && (
             <Pelis
               estadoPeli={estadoPeli}
@@ -118,7 +118,7 @@ export default function Funciones() {
                           Buscar por fecha:
                         </label>
                         <input
-                          className="m-2 border border-gray-300 px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
+                          className="m-2 border  px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
                           type="date"
                           value={filter}
                           onChange={handleFilterChange}
