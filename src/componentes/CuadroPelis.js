@@ -35,7 +35,7 @@ export default function CuadroPelis({ pelicula }) {
           <Link
             to="/funciones"
             state={{ link: baseUrl + pelicula.id }}
-            className="border border-gray-200 bg-transparent hover:opacity-100 text-white font-semibold hover:text-white hover:bg-gray-800 text-2xl py-2 px-4 rounded my-3"
+            className="z-40 border border-gray-200 bg-transparent hover:opacity-100 text-white font-semibold hover:text-white hover:bg-gray-800 text-2xl py-2 px-4 rounded my-3"
           >
             <button >Ver funciones</button>
           </Link>

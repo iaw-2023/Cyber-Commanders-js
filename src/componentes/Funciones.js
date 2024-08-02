@@ -90,13 +90,13 @@ export default function Funciones() {
   }, []);
 
   return (
-    <div className="bg-black border  h-full">
+    <div className="bg-black  h-full">
       {loading ? (
         <div className="flex items-center justify-center h-screen">
           <CircularProgress />
         </div>
       ) : (
-        <div className=" border grid grid-cols-5">
+        <div className="  grid grid-cols-5">
           {showPeli && (
             <Pelis
               estadoPeli={estadoPeli}
