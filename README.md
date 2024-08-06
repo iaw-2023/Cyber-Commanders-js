@@ -1,70 +1,81 @@
-# Getting Started with Create React App
+   
+## Proyecto Javascript - React/Vue
+### Que información podrá ver el usuario
+    -Las distintas funciones según la fecha
+    -Los productos que puede agregar a una entrada (comida,bebida)
+    -Se podría agregar a futuro un detalle de cada película en cartelera como el reparto, director, una descripción etc...
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Que acciones podrá realizar, ya sea la primera vez que ingrese a la aplicación como futuros accesos a la misma
+    -Ver funciones
+    -Ver peliculas
+    -Comprar entradas para funciones e incorporar extras tales como bebidas y/o comidas.
+# Examen final: Solo realizado por Federico Talmon.
 
-## Available Scripts
 
-In the project directory, you can run:
+### Entrega: Agosto 2024
 
-### `npm start`
+Durante la cursada solo se completo la funcionalidad basica de la aplicacion, por lo que se debieron implementar de forma posterior todas las funcionalidades necesarias para aprobar el examen final .
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Funcionalidades
+- ### Reponsive en js
+   El proyecto de React es adaptable a las distintas pantallas segun corresponda en su tamaño. En los componentes mas sencillos se logra utilizando tailwind, y en aquellos mas complejos/personalizados se utiliza CSS puro.
+- ### Roles en Laravel
+    Distingui distintos tipos de usuarios en el back-end. Cada tipo de usuario tiene un "cargo" distinto dentro del cine.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+~~~
+Admin salas: Es el encargado de crear, modificar o eliminar salas
 
-### `npm test`
+User:adminSalas@gmail.com
+Password:adminSalas
+~~~
+~~~
+Admin Pelis: Se encarga de cargar, modificar o eliminar peliculas y funciones.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+User:adminPelis@gmail.com
+Password:adminPelis
+~~~
+~~~
+Admin Extras: Lo imagine como un empleado del candy-bar, por lo que se encarga del manejo de stock de productos del mismo. Agrega, modifica y elimina "extras" (productos del candy bar).
 
-### `npm run build`
+User:adminExtras@gmail.com
+Password:adminExtras
+~~~
+~~~
+SuperAdmin: Tiene la capacidad de crear, modificar o eliminar cualquier entidad dentro del sistema
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+User:superAdmin@gmail.com
+Password:superAdmin
+~~~
+- ### Servicio web en Laravel
+    Para agregar funcionalidad extra en el back-end, se consume la API de themoviedb.org, desde la cual pude obtener un conjunto de peliculas, con su nombre y un poster. Este servicio fue de utilidad para no tener que cargar peliculas a mano a la base de datos.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- ### Servicio web en JS
+    En el front-end, utilice un servicio de email llamado emailjs, el cual se encarga de enviar un correo electronico a una persona al momento de finalizar la compra de su entrada con informacion util para el usuario (fecha y hora de la funcion, asi como tambien un listado de productos adquiridos en el candy bar). 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- ### PWA
+    Se desarrollo la funcionalidad de PWA, permitiendo que el proyecto de JS se pueda "instalar" como aplicacion tanto en Desktop, como en telefonos. 
 
-### `npm run eject`
+- ### Accesibilidad
+ Se implementaron estas tres guias de accesibilidad
+- https://www.w3.org/WAI/perspective-videos/keyboard/
+- https://www.w3.org/WAI/perspective-videos/contrast/
+- https://www.w3.org/WAI/perspective-videos/speech/
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- ### Administracion de archivos
+  A la hora de guardar una nueva pelicula, las imagenes se almacenan en un bucket de supabase. 
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- ### MercadoPago
+    Implementé el modulo de "card payment brick". Luego de seleccionar una funcion, mas los extras, se muestra la pantalla del brick de mercadopago. Para usarlo en modo sandbox se pueden colocar las siguientes credenciales.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+    * Tarjeta: Mastercard
+    * N° de tarjeta: 5031 7557 3453 0604
+    * Cod.Seguridad: 123
+    * Vencimiento: 11/25
+ 
+- ### Autenticacion de usuarios en JS
+    Se utiliza Auth0 para autenticar a los usuarios en el front-end. En este proceso, los usuarios generan tokens que luego sirven para 
+    * Guardar la compra del usuario.
+    * Recuperar las compras del usuario.
+- ### Uso de la IA Gemini
+    En el hipotetico caso de que un cliente no sepa que pelicula mirar, puede utilizar Gemini y buscar una pelicula ingresando palabras clave de su interes. Por ejemplo, al buscar "pelicula argentina", Gemini analiza el listado de peliculas que se encuentran en la base de datos y podria devolver, por ejemplo, Nueve reinas.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
