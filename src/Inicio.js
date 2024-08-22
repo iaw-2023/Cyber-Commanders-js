@@ -2,12 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import inicio from "./CSS/inicio.module.css";
 
-
 const url = "https://cyber-commanders-laravel.vercel.app/rest/funciones";
 
 export default function Inicio() {
-
-
   return (
     <div className={inicio.container}>
       <div
@@ -16,20 +13,27 @@ export default function Inicio() {
         onClick={() => {
           window.location.href = "/salas";
         }}
+        role="button"
+        aria-label="Ver salas de cine"
+        tabIndex={0}
       >
         <div className={inicio.content}>
           <h1 className="text-2xl">Salas</h1>
           <p className="text-gray-100">
-            Hace click aca para ver nuestras salas
+            Hace click acá para ver nuestras salas
           </p>
           <Link
             to="/salas"
             className={"inline-flex relative top-20 " + inicio.btn}
+            aria-label="Ver salas disponibles"
           >
             <span className="h-12 flex items-center justify-center uppercase font-semibold px-8 border border-white hover:bg-black hover:text-white transition duration-500 ease-in-out">
               Ver Salas
             </span>
-            <span className="h-12 w-12 flex-shrink-0 flex items-center justify-center border border-l-0 border-white hover:bg-black hover:text-white transition duration-500 ease-in-out">
+            <span
+              className="h-12 w-12 flex-shrink-0 flex items-center justify-center border border-l-0 border-white hover:bg-black hover:text-white transition duration-500 ease-in-out"
+              aria-hidden="true"
+            >
               <svg
                 className="h-3 w-3"
                 aria-hidden="true"
@@ -49,26 +53,34 @@ export default function Inicio() {
         </div>
         <div className={inicio.overlay} />
       </div>
+
       <div
         id={inicio.peliculas}
         className={inicio.section}
         onClick={() => {
           window.location.href = "/peliculas";
         }}
+        role="button"
+        aria-label="Ver películas disponibles"
+        tabIndex={0}
       >
         <div className={inicio.content}>
-          <h1 className="text-2xl">Peliculas</h1>
+          <h1 className="text-2xl">Películas</h1>
           <p className="text-gray-100">
-            Busca tus pelis favoritas presionando aqui
+            Busca tus pelis favoritas presionando aquí
           </p>
           <Link
             to="/peliculas"
             className={"inline-flex relative top-20 " + inicio.btn}
+            aria-label="Ver películas"
           >
             <span className="h-12 flex items-center justify-center uppercase font-semibold px-8 border border-white hover:bg-black hover:text-white transition duration-500 ease-in-out">
-              Ver Peliculas
+              Ver Películas
             </span>
-            <span className="h-12 w-12 flex-shrink-0 flex items-center justify-center border border-l-0 border-white hover:bg-black hover:text-white transition duration-500 ease-in-out">
+            <span
+              className="h-12 w-12 flex-shrink-0 flex items-center justify-center border border-l-0 border-white hover:bg-black hover:text-white transition duration-500 ease-in-out"
+              aria-hidden="true"
+            >
               <svg
                 className="h-3 w-3"
                 aria-hidden="true"
@@ -88,12 +100,16 @@ export default function Inicio() {
         </div>
         <div className={inicio.overlay} />
       </div>
+
       <div
         id={inicio.funciones}
         className={inicio.section}
         onClick={() => {
           window.location.href = "/funciones";
         }}
+        role="button"
+        aria-label="Ver funciones disponibles"
+        tabIndex={0}
       >
         <div className={inicio.content}>
           <h1 className="text-2xl">Funciones</h1>
@@ -104,11 +120,15 @@ export default function Inicio() {
             to="/funciones"
             state={{ link: url }}
             className={"inline-flex relative top-20 " + inicio.btn}
+            aria-label="Ver funciones"
           >
             <span className="h-12 flex items-center justify-center uppercase font-semibold px-8 border border-white hover:bg-black hover:text-white transition duration-500 ease-in-out">
-              Ver funciones
+              Ver Funciones
             </span>
-            <span className="h-12 w-12 flex-shrink-0 flex items-center justify-center border border-l-0 border-white hover:bg-black hover:text-white transition duration-500 ease-in-out">
+            <span
+              className="h-12 w-12 flex-shrink-0 flex items-center justify-center border border-l-0 border-white hover:bg-black hover:text-white transition duration-500 ease-in-out"
+              aria-hidden="true"
+            >
               <svg
                 className="h-3 w-3"
                 aria-hidden="true"
