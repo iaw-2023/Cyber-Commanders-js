@@ -62,7 +62,7 @@ Password:superAdmin
 - https://www.w3.org/WAI/perspective-videos/speech/
 
 - ### Administracion de archivos
-  A la hora de guardar una nueva pelicula, las imagenes se almacenan en un bucket de supabase. 
+  A la hora de guardar una nueva pelicula, los posters se convierten a base64 y quedan almacenados en un campo dentro de la tabla "peliculas"
 
 - ### MercadoPago
     Implementé el modulo de "card payment brick". Luego de seleccionar una funcion, mas los extras, se muestra la pantalla del brick de mercadopago. Para usarlo en modo sandbox se pueden colocar las siguientes credenciales.
