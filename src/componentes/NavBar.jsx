@@ -29,7 +29,7 @@ export function NavbarDefault() {
         color="blue-gray"
         className="flex items-center gap-x-2 p-1 font-medium"
       >
-        <Link to="/" className="flex items-center">
+        <Link to="/" className="flex items-center" aria-label="Inicio">
           Inicio
         </Link>
       </Typography>
@@ -39,8 +39,8 @@ export function NavbarDefault() {
         color="blue-gray"
         className="flex items-center gap-x-2 p-1 font-medium"
       >
-        <Link to="/peliculas" className="flex items-center">
-          Peliculas
+        <Link to="/peliculas" className="flex items-center" aria-label="Películas">
+          Películas
         </Link>
       </Typography>
       <Typography
@@ -49,7 +49,7 @@ export function NavbarDefault() {
         color="blue-gray"
         className="flex items-center gap-x-2 p-1 font-medium"
       >
-        <Link to="/funciones" className="flex items-center">
+        <Link to="/funciones" className="flex items-center" aria-label="Funciones">
           Funciones
         </Link>
       </Typography>
@@ -59,7 +59,7 @@ export function NavbarDefault() {
         color="blue-gray"
         className="flex items-center gap-x-2 p-1 font-medium"
       >
-        <Link to="/salas" className="flex items-center">
+        <Link to="/salas" className="flex items-center" aria-label="Salas">
           Salas
         </Link>
       </Typography>
@@ -70,7 +70,7 @@ export function NavbarDefault() {
           color="blue-gray"
           className="flex items-center gap-x-2 p-1 font-medium"
         >
-          <Link to="/misCompras" className="flex items-center">
+          <Link to="/misCompras" className="flex items-center" aria-label="Mis Compras">
             Mis Compras
           </Link>
         </Typography>
@@ -81,18 +81,15 @@ export function NavbarDefault() {
   return (
     <Navbar className="bg-black mx-auto  rounded-none py-2 border-l-0 border-r-0 border-t-0 border-b-yellow-600  lg:py-4">
       <div className="container mx-auto flex items-center justify-between text-blue-gray-900">
-        <Link to="/" >
+        <Link to="/" aria-label="CinesIAW Home">
           <Typography className="mr-4 cursor-pointer py-1.5 font-medium">
             CinesIAW
           </Typography>
         </Link>
         <div className="hidden lg:block">{navList}</div>
         <div className="flex items-center gap-x-1">
-          <Button variant="text" size="sm" className="hidden lg:inline-block">
-            {
-              isAuthenticated? <LogoutButton /> : <LoginButton />
-            }
-            
+          <Button variant="text" size="sm" className="hidden lg:inline-block" aria-label={isAuthenticated ? "Logout" : "Login"}>
+            {isAuthenticated ? <LogoutButton /> : <LoginButton />}
           </Button>
         </div>
         <IconButton
@@ -100,6 +97,7 @@ export function NavbarDefault() {
           className="ml-auto h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
           ripple={false}
           onClick={() => setOpenNav(!openNav)}
+          aria-label="Toggle Navigation"
         >
           {openNav ? (
             <svg
@@ -137,10 +135,8 @@ export function NavbarDefault() {
         <div className="container mx-auto">
           {navList}
           <div className="flex items-center gap-x-1">
-            <Button fullWidth variant="text" size="sm" className="">
-            {
-              isAuthenticated? <LogoutButton /> : <LoginButton />
-            }
+            <Button fullWidth variant="text" size="sm" className="" aria-label={isAuthenticated ? "Logout" : "Login"}>
+              {isAuthenticated ? <LogoutButton /> : <LoginButton />}
             </Button>
           </div>
         </div>

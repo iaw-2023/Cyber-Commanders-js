@@ -26,7 +26,7 @@ function Navbar() {
         />
       </Link>
       <nav className={`${styles.navMenu} ${isMenuOpen ? styles.active : ""}`} ref={navRef}>
-        <Link to="/" className={styles.navLink}>
+        <Link  to="/" className={styles.navLink}>
           Inicio
         </Link>
         <Link to="/peliculas" className={styles.navLink}>
@@ -43,7 +43,7 @@ function Navbar() {
             Mis compras
           </Link>
         )}
-        <button className={styles.navbarButton} onClick={toggleNavbar}>
+        <button aria-label="open menu" className={styles.navbarButton} onClick={toggleNavbar}>
           {isMenuOpen ? <FaTimes /> : <FaBars />}
         </button>
         {isAuthenticated ? <LogoutButton /> : <LoginButton />}
